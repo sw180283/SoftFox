@@ -15,7 +15,7 @@ int main(int argc, char* args[])
 	else
 	{
 		//Create the window of the program with (title, x, y, width, height, flag)
-		SDL_Window* window = SDL_CreateWindow("My first SDL game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+		SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
 
 		//If the window returns a null
 		if (window == nullptr)
@@ -34,9 +34,6 @@ int main(int argc, char* args[])
 			}
 			else
 			{
-				//Set some values for x and y
-				int x = 0;
-				int y = 0;
 
 				//Set a boolean to keep the window running until false
 				bool running = true;
@@ -47,8 +44,6 @@ int main(int argc, char* args[])
 					SDL_Event ev;
 					if (SDL_PollEvent(&ev))
 					{
-						//Set new random number for colour range
-						int random_integer = (int)rand() % (255 - 0) + 0;
 						switch (ev.type)
 						{
 							//Create a case for quitting the window and set running to false to deconstruct the window
@@ -57,34 +52,16 @@ int main(int argc, char* args[])
 							running = false;
 							break;
 
-							//Create case for keydown
-						case SDL_KEYDOWN:
-							//If space bar is pressed change x and y
-							if (ev.key.keysym.sym == SDLK_SPACE)
-								x = 0;
-							y = random_integer;
-							break;
-
 						default:
 							break;
 						}
 					}
 
 					//Change the colour of the background renderer and then clear the colour
-					SDL_SetRenderDrawColor(renderer, 0, y, 0, 2555);
+					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 2555);
 					SDL_RenderClear(renderer);
 
-					//Change the colour of the line renderer and then clear the colour
-					SDL_SetRenderDrawColor(renderer, 255, 0, 255, 2555);
-					SDL_RenderDrawLine(renderer, x, 100, 500, 300);
-
-					//Change the colour of the line renderer and then clear the colour
-					SDL_SetRenderDrawColor(renderer, 0, 0, 255, 2555);
-					SDL_RenderDrawLine(renderer, 500, 100, x, 300);
-
 					SDL_RenderPresent(renderer);
-
-					x = (x + 1) % 800;
 				}
 
 				//SDL_Delay(2000);

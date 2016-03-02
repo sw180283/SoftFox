@@ -1,25 +1,17 @@
-﻿Build started 29/02/2016 16:10:44.
-     1>Project "X:\Sam\C++\SoftFox\SoftFox\SoftFox.vcxproj" on node 2 (Build target(s)).
+﻿Build started 02/03/2016 12:16:02.
+     1>Project "X:\Other\Sam\SoftFox\SoftFox\SoftFox\SoftFox.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\SoftFox.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\SoftFox.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt SoftFox.cpp
          SoftFox.cpp
-     1>x:\sam\c++\softfox\softfox\softfox.cpp(74): warning C4305: 'argument': truncation from 'int' to 'Uint8'
-     1>x:\sam\c++\softfox\softfox\softfox.cpp(74): warning C4309: 'argument': truncation of constant value
-     1>x:\sam\c++\softfox\softfox\softfox.cpp(78): warning C4305: 'argument': truncation from 'int' to 'Uint8'
-     1>x:\sam\c++\softfox\softfox\softfox.cpp(78): warning C4309: 'argument': truncation of constant value
-     1>x:\sam\c++\softfox\softfox\softfox.cpp(82): warning C4305: 'argument': truncation from 'int' to 'Uint8'
-     1>x:\sam\c++\softfox\softfox\softfox.cpp(82): warning C4309: 'argument': truncation of constant value
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\SoftFox.res" SoftFox.rc 
+     1>x:\other\sam\softfox\softfox\softfox\softfox.cpp(62): warning C4305: 'argument': truncation from 'int' to 'Uint8'
+     1>x:\other\sam\softfox\softfox\softfox\softfox.cpp(62): warning C4309: 'argument': truncation of constant value
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"X:\Sam\C++\SoftFox\Debug\SoftFox.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"X:\Sam\C++\SoftFox\Debug\SoftFox.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"X:\Sam\C++\SoftFox\Debug\SoftFox.lib" /MACHINE:X86 Debug\SoftFox.res
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"X:\Other\Sam\SoftFox\SoftFox\Debug\SoftFox.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"X:\Other\Sam\SoftFox\SoftFox\Debug\SoftFox.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"X:\Other\Sam\SoftFox\SoftFox\Debug\SoftFox.lib" /MACHINE:X86 Debug\SoftFox.res
          Debug\SoftFox.obj
          Debug\stdafx.obj
-         SoftFox.vcxproj -> X:\Sam\C++\SoftFox\Debug\SoftFox.exe
-     1>Done Building Project "X:\Sam\C++\SoftFox\SoftFox\SoftFox.vcxproj" (Build target(s)).
+         SoftFox.vcxproj -> X:\Other\Sam\SoftFox\SoftFox\Debug\SoftFox.exe
+     1>Done Building Project "X:\Other\Sam\SoftFox\SoftFox\SoftFox\SoftFox.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.29
+Time Elapsed 00:00:00.40
