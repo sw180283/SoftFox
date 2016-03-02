@@ -5,6 +5,8 @@
 #include "SoftFox.h"
 
 const int SPRITE_SIZE = 64;
+const int WINDOW_WIDTH = 800;
+const int WINDOW_HEIGHT = 600;
 
 int main(int argc, char* args[])
 {
@@ -17,7 +19,7 @@ int main(int argc, char* args[])
 	else
 	{
 		//Create the window of the program with (title, x, y, width, height, flag)
-		SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+		SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 
 		//If the window returns a null
 		if (window == nullptr)
@@ -31,18 +33,25 @@ int main(int argc, char* args[])
 			//Create a pointer to a renderer that renders in the window, in any position for the flag of syncing the frame rate of the computer for 60fps
 			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 
-			//setting player texture
-			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "Sprites\\test_sprite.png");
-
 			if (renderer == nullptr)
 			{
 				std::cout << "SDL_CreateRenderer: " << SDL_GetError() << std::endl;
 			}
+
+			//setting player texture
+			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\test_sprite.png");
+			if (playerSprite == nullptr)
+			{
+				MessageBoxA(NULL, SDL_GetError(), "IMG_LoadTexture failed", MB_OK | MB_ICONERROR);
+			}
+
 			else
 			{
 
 				//Set a boolean to keep the window running until false
 				bool running = true;
+				int playerX = WINDOW_WIDTH / 2;
+				int playerY = WINDOW_HEIGHT / 2;
 
 				while (running)
 				{
@@ -64,7 +73,7 @@ int main(int argc, char* args[])
 					}
 
 					//Change the colour of the background renderer and then clear the colour
-					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 2555);
+					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 					SDL_RenderClear(renderer);
 
 					//Drawing player sprite (texture class)
@@ -73,7 +82,7 @@ int main(int argc, char* args[])
 					dest.y = playerY - SPRITE_SIZE / 2;
 					dest.w = SPRITE_SIZE;
 					dest.h = SPRITE_SIZE;
-					SDL_RenderCopy(renderer, playersprite, nullptr, &dest);
+					SDL_RenderCopy(renderer, playerSprite, nullptr, &dest);
 
 					SDL_RenderPresent(renderer);
 				}
