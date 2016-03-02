@@ -19,6 +19,6 @@
 
 
 // TODO: reference additional headers your program requires here
-#include <SDL_image.h>
-#include <SDL.h>
+#include <SDL.h> 
+#include <SDL2_image.h>
 #include <iostream>
