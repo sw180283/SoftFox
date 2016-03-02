@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "SoftFox.h"
 
+const int SPRITE_SIZE = 64;
+
 int main(int argc, char* args[])
 {
 	//Initialise the video to allow for display on the window
@@ -25,8 +27,12 @@ int main(int argc, char* args[])
 		}
 		else
 		{
+
 			//Create a pointer to a renderer that renders in the window, in any position for the flag of syncing the frame rate of the computer for 60fps
 			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+
+			//setting player texture
+			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "Sprites\\test_sprite.png");
 
 			if (renderer == nullptr)
 			{
@@ -60,6 +66,14 @@ int main(int argc, char* args[])
 					//Change the colour of the background renderer and then clear the colour
 					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 2555);
 					SDL_RenderClear(renderer);
+
+					//Drawing player sprite (texture class)
+					SDL_Rect dest;
+					dest.x = playerX - SPRITE_SIZE / 2;
+					dest.y = playerY - SPRITE_SIZE / 2;
+					dest.w = SPRITE_SIZE;
+					dest.h = SPRITE_SIZE;
+					SDL_RenderCopy(renderer, playersprite, nullptr, &dest);
 
 					SDL_RenderPresent(renderer);
 				}
