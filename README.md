@@ -3,7 +3,7 @@
 ###Project Team: Sam, Thomas, Dean, Octavian
 
 ##First Trello Sprint Plan
-The first sprint review is:
+The first sprint review is: 11/03/2016
 
 ![alt text][first_sprint_plan_group]
 
