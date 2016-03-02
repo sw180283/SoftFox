@@ -7,4 +7,4 @@ The first sprint review is:
 
 ![alt text][first_sprint_plan_group]
 
-[first_sprint_plan_group]: hhttps://github.com/sw180283/SoftFox/blob/master/First_Sprint_Plan_Group.png "First Trello Sprint Plan"
+[first_sprint_plan_group]: https://github.com/sw180283/SoftFox/blob/master/First_Sprint_Plan_Group.jpg "First Trello Sprint Plan"
