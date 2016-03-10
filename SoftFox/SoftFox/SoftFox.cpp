@@ -41,7 +41,11 @@ int main(int argc, char* args[])
 
 			//setting player texture
 			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
-			if (playerSprite == nullptr)
+
+			//setting platform texture
+			SDL_Texture* platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+
+			if (playerSprite == nullptr || platformSprite == nullptr)
 			{
 				MessageBoxA(NULL, SDL_GetError(), "IMG_LoadTexture failed", MB_OK | MB_ICONERROR);
 			}
@@ -53,6 +57,9 @@ int main(int argc, char* args[])
 				bool running = true;
 				int playerX = WINDOW_WIDTH / 2;
 				int playerY = WINDOW_HEIGHT / 2;
+
+				int platformX = 40;
+				int platformY = 40;
 
 				while (running)
 				{
@@ -73,7 +80,6 @@ int main(int argc, char* args[])
 						}
 					}
 
-
 					// Check keyboard state
 					const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
 					if (keyboardState[SDL_SCANCODE_UP])
@@ -88,7 +94,7 @@ int main(int argc, char* args[])
 					//Change the colour of the background renderer and then clear the colour
 					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 					SDL_RenderClear(renderer);
-
+					
 					//Drawing player sprite (texture class)
 					SDL_Rect dest;
 					dest.x = playerX - SPRITE_SIZE / 2;
@@ -96,8 +102,19 @@ int main(int argc, char* args[])
 					dest.w = SPRITE_SIZE;
 					dest.h = SPRITE_SIZE;
 					SDL_RenderCopy(renderer, playerSprite, nullptr, &dest);
-
+					
+					//SDL_RenderPresent(renderer);
+					
+					//Draw platform sprite texture
+					SDL_Rect destP;
+					destP.x = platformX - SPRITE_SIZE / 2;
+					destP.y = platformY - SPRITE_SIZE / 2;
+					destP.w = SPRITE_SIZE;
+					destP.h = SPRITE_SIZE;
+					SDL_RenderCopy(renderer, platformSprite, nullptr, &destP);
+					
 					SDL_RenderPresent(renderer);
+					
 				}
 
 				//SDL_Delay(2000);
