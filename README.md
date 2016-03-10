@@ -19,4 +19,4 @@ We approached this first user story as a group and worked around Thomas' laptop.
 The user story that we wanted to focus on was to have a basic sprite render on screen. We already had a window that opened up with a black background and a quit function that meant the player could press the red cross to close the project. The main challenge we had with this was that we had initially setup our libraries incorrectly and needed to download SDL2_image-2.0.4 to support our image load. After we did this, we were able to use a sprite to display on screen which represented the character.
 
 ##Week 2 - Second Pair Programming Session - Move character around screen
-
+##Task completed
