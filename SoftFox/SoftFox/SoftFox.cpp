@@ -59,7 +59,7 @@ int main(int argc, char* args[])
 				int playerY = WINDOW_HEIGHT / 2;
 
 				int platformX = 40;
-				int platformY = 40;
+				int platformY = 400;
 
 				while (running)
 				{
@@ -107,10 +107,10 @@ int main(int argc, char* args[])
 					
 					//Draw platform sprite texture
 					SDL_Rect destP;
-					destP.x = platformX - SPRITE_SIZE / 2;
+					destP.x = 1; //platformX - SPRITE_SIZE / 2;
 					destP.y = platformY - SPRITE_SIZE / 2;
-					destP.w = SPRITE_SIZE;
-					destP.h = SPRITE_SIZE;
+					destP.w = 800;// SPRITE_SIZE;
+					destP.h = 9;// SPRITE_SIZE;
 					SDL_RenderCopy(renderer, platformSprite, nullptr, &destP);
 					
 					SDL_RenderPresent(renderer);
