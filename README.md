@@ -12,7 +12,7 @@ The first sprint review is: 11/03/2016
 ##Basic Setup
 Our project is set up in Visual Studios and we are using the SDL library with C++. The first step was setting up our base programme so that the libraries and project settings were suited to this.
 
-##First Pair Programming Session - Sprite render
+##Week 1 - First Pair Programming Session - Sprite render
 ###Task completed by: Thomas, Sam, Dean (Pair programming)
 We approached this first user story as a group and worked around Thomas' laptop. This meant that we were all able to see what was needed and could each input into the code. This was useful as none of us said we were confident in C++ and it would help us to communicate as a group to do as much pair programming as possible.
 
