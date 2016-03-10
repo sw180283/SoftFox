@@ -7,6 +7,7 @@
 const int SPRITE_SIZE = 64;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
+static const int PLAYER_MOVEMENT_SPEED = 4;
 
 int main(int argc, char* args[])
 {
@@ -39,7 +40,7 @@ int main(int argc, char* args[])
 			}
 
 			//setting player texture
-			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\test_sprite.png");
+			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
 			if (playerSprite == nullptr)
 			{
 				MessageBoxA(NULL, SDL_GetError(), "IMG_LoadTexture failed", MB_OK | MB_ICONERROR);
@@ -71,6 +72,18 @@ int main(int argc, char* args[])
 							break;
 						}
 					}
+
+
+					// Check keyboard state
+					const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+					if (keyboardState[SDL_SCANCODE_UP])
+						playerY -= PLAYER_MOVEMENT_SPEED;
+					if (keyboardState[SDL_SCANCODE_DOWN])
+						playerY += PLAYER_MOVEMENT_SPEED;
+					if (keyboardState[SDL_SCANCODE_LEFT])
+						playerX -= PLAYER_MOVEMENT_SPEED;
+					if (keyboardState[SDL_SCANCODE_RIGHT])
+						playerX += PLAYER_MOVEMENT_SPEED;
 
 					//Change the colour of the background renderer and then clear the colour
 					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
