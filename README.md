@@ -36,3 +36,12 @@ Finally, we were able to change the image of the player sprite to give more idea
 ![alt text][End_of_first_sprint]
 
 [End_of_first_sprint]: https://github.com/sw180283/SoftFox/blob/master/First_Complete_Sprint_Plan.jpg "End Of First Sprint"
+
+##The First Sprint Review
+There was some issues raised with our layout of our trello board, such as using labels to respresent our members. It was suggested by our "Product manager" to use the members functions of Trello and instead use the labels for a way to represent the tasks. Therefore, we have created labels for: programming, design, art and research.
+
+Another suggestion was to prioritise our trello backlog with the user stories are most needed for our game to be at the top. We have found this to be useful in seeing which areas of our project we need to approach next.
+
+We were also recommened to start our self, group and peer evaulation in private documents to document our progress. A suggested method was Post-mortum which looks at some achievements which we were proud of, and some areas of improvement.
+
+The overall, we feel this sprint went well as we achieved all but one of our intended user stories. For improvement, Github branches could have been used more to make sure we always have a working master with separate branches to have work in progress user stories.
