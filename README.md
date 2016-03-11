@@ -25,3 +25,8 @@ In this session, we started to implement code to move the character around the s
 We also were able to implement platformer rendering and started to build the design for our game. We encountered an error with our Visual Studios program, that was resolved by deleting the Debug folder. This caused frustration during this session as we were getting inconsistent errors.
 
 Finally, we were able to change the image of the player sprite to give more idea of the intended aesthetic.
+
+##End of first sprint
+![alt text][End_of_first_sprint]
+
+[End_of_first_sprint]: https://github.com/sw180283/SoftFox/blob/master/First_Complete_Sprint_Plan.jpg "End Of First Sprint"
