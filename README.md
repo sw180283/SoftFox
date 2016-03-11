@@ -9,6 +9,12 @@ The first sprint review is: 11/03/2016
 
 [first_sprint_plan_group]: https://github.com/sw180283/SoftFox/blob/master/First_Sprint_Plan_Group.jpg "First Trello Sprint Plan"
 
+##Trello Board Name Labels
+
+![alt text][trello_board_name_label]
+
+[trello_board_name_label]: https://github.com/sw180283/SoftFox/blob/master/Trello_Board_Name_Labels.jpg "Trello Board Name Labels"
+
 ##Basic Setup
 Our project is set up in Visual Studios and we are using the SDL library with C++. The first step was setting up our base programme so that the libraries and project settings were suited to this.
 
