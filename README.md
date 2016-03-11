@@ -45,3 +45,8 @@ Another suggestion was to prioritise our trello backlog with the user stories ar
 We were also recommened to start our self, group and peer evaulation in private documents to document our progress. A suggested method was Post-mortum which looks at some achievements which we were proud of, and some areas of improvement.
 
 The overall, we feel this sprint went well as we achieved all but one of our intended user stories. For improvement, Github branches could have been used more to make sure we always have a working master with separate branches to have work in progress user stories.
+
+##End of first sprint
+![alt text][Start_of_second_sprint]
+
+[Start_of_second_sprint]: https://github.com/sw180283/SoftFox/blob/master/Second_Group_Sprint_Plan.jpg "Start Of Second Sprint"
