@@ -46,7 +46,7 @@ We were also recommened to start our self, group and peer evaulation in private 
 
 The overall, we feel this sprint went well as we achieved all but one of our intended user stories. For improvement, Github branches could have been used more to make sure we always have a working master with separate branches to have work in progress user stories.
 
-##End of first sprint
+##Start of second sprint
 ![alt text][Start_of_second_sprint]
 
 [Start_of_second_sprint]: https://github.com/sw180283/SoftFox/blob/master/Second_Group_Sprint_Plan.jpg "Start Of Second Sprint"
