@@ -35,7 +35,7 @@ Finally, we were able to change the image of the player sprite to give more idea
 ##End of first sprint
 ![alt text][End_of_first_sprint]
 
-[End_of_first_sprint]: https://github.com/sw180283/SoftFox/blob/master/First_Complete_Sprint_Plan.jpg "End Of First Sprint"
+[End_of_first_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/First_Complete_Sprint_Plan.jpg "End Of First Sprint"
 
 ##The First Sprint Review
 There was some issues raised with our layout of our trello board, such as using labels to respresent our members. It was suggested by our "Product manager" to use the members functions of Trello and instead use the labels for a way to represent the tasks. Therefore, we have created labels for: programming, design, art and research.
