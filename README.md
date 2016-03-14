@@ -7,13 +7,13 @@ The first sprint review is: 11/03/2016
 
 ![alt text][first_sprint_plan_group]
 
-[first_sprint_plan_group]: https://github.com/sw180283/SoftFox/blob/master/First_Sprint_Plan_Group.jpg "First Trello Sprint Plan"
+[first_sprint_plan_group]: https://github.com/sw180283/SoftFox/blob/master/Trello/First_Sprint_Plan_Group.jpg "First Trello Sprint Plan"
 
 ##Trello Board Name Labels
 
 ![alt text][trello_board_name_label]
 
-[trello_board_name_label]: https://github.com/sw180283/SoftFox/blob/master/Trello_Board_Name_Labels.jpg "Trello Board Name Labels"
+[trello_board_name_label]: https://github.com/sw180283/SoftFox/blob/master/Trello/Trello_Board_Name_Labels.jpg "Trello Board Name Labels"
 
 ##Basic Setup
 Our project is set up in Visual Studios and we are using the SDL library with C++. The first step was setting up our base programme so that the libraries and project settings were suited to this.
@@ -35,7 +35,7 @@ Finally, we were able to change the image of the player sprite to give more idea
 ##End of first sprint
 ![alt text][End_of_first_sprint]
 
-[End_of_first_sprint]: https://github.com/sw180283/SoftFox/blob/master/First_Complete_Sprint_Plan.jpg "End Of First Sprint"
+[End_of_first_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/First_Complete_Sprint_Plan.jpg "End Of First Sprint"
 
 ##The First Sprint Review
 There was some issues raised with our layout of our trello board, such as using labels to respresent our members. It was suggested by our "Product manager" to use the members functions of Trello and instead use the labels for a way to represent the tasks. Therefore, we have created labels for: programming, design, art and research.
@@ -47,6 +47,6 @@ We were also recommened to start our self, group and peer evaulation in private 
 The overall, we feel this sprint went well as we achieved all but one of our intended user stories. For improvement, Github branches could have been used more to make sure we always have a working master with separate branches to have work in progress user stories.
 
 ##Start of second sprint
-![alt text][Start_of_second_sprint]
+![alt text][Start_of_second_sprint] 
 
-[Start_of_second_sprint]: https://github.com/sw180283/SoftFox/blob/master/Second_Group_Sprint_Plan.jpg "Start Of Second Sprint"
+[Start_of_second_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/Second_Group_Sprint_Plan.jpg "Start Of Second Sprint"
