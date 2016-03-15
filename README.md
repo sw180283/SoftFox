@@ -7,7 +7,7 @@
 [Week 1](#week-1---first-pair-programming-session---sprite-render)  
 [Week 2](#week-2---second-pair-programming-session---move-character-around-screen,-render-platforms-on-screen,-change-sprite-to-fox)  
 [The First Sprint Review](#the-first-sprint-review)  
-[Start of second sprint](#start-of-second-sprint)  
+[Start Of Second Sprint](#start-of-second-sprint)  
 
 #First Time Downloading Folder
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
@@ -56,7 +56,7 @@ We were also recommened to start our self, group and peer evaulation in private 
 
 The overall, we feel this sprint went well as we achieved all but one of our intended user stories. For improvement, Github branches could have been used more to make sure we always have a working master with separate branches to have work in progress user stories.
 
-##Start of second sprint
+##Start Of Second Sprint
 ![alt text][Start_of_second_sprint] 
 
 [Start_of_second_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/Second_Group_Sprint_Plan.jpg "Start Of Second Sprint"
