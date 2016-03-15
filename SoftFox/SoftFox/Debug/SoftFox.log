@@ -1,16 +1,17 @@
-﻿Build started 15/03/2016 12:56:30.
+﻿Build started 15/03/2016 14:12:38.
      1>Project "C:\Users\home\Desktop\Sam\SoftFox\SoftFox\SoftFox\SoftFox.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\SoftFox.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\SoftFox.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt SoftFox.cpp Texture.cpp
-         Texture.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\SoftFox.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt SoftFox.cpp
          SoftFox.cpp
-         Generating Code...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\SoftFox.res" SoftFox.rc 
+     1>c:\users\home\desktop\sam\softfox\softfox\softfox\softfox.cpp(19): warning C4297: 'SDL_main': function assumed not to throw an exception but does
+         c:\users\home\desktop\sam\softfox\softfox\softfox\softfox.cpp(19): note: __declspec(nothrow), throw(), noexcept(true), or noexcept was specified on the function
+     1>c:\users\home\desktop\sam\softfox\softfox\softfox\softfox.cpp(30): warning C4297: 'SDL_main': function assumed not to throw an exception but does
+         c:\users\home\desktop\sam\softfox\softfox\softfox\softfox.cpp(30): note: __declspec(nothrow), throw(), noexcept(true), or noexcept was specified on the function
+     1>c:\users\home\desktop\sam\softfox\softfox\softfox\softfox.cpp(40): warning C4297: 'SDL_main': function assumed not to throw an exception but does
+         c:\users\home\desktop\sam\softfox\softfox\softfox\softfox.cpp(40): note: __declspec(nothrow), throw(), noexcept(true), or noexcept was specified on the function
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\home\Desktop\Sam\SoftFox\SoftFox\Debug\SoftFox.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\home\Desktop\Sam\SoftFox\SoftFox\Debug\SoftFox.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\home\Desktop\Sam\SoftFox\SoftFox\Debug\SoftFox.lib" /MACHINE:X86 Debug\SoftFox.res
+         Debug\InitialisationError.obj
          Debug\SoftFox.obj
          Debug\stdafx.obj
          Debug\Texture.obj
@@ -19,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.61
+Time Elapsed 00:00:00.28

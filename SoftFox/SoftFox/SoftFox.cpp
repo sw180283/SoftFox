@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "SoftFox.h"
+#include "InitialisationError.h"
 
 const int SPRITE_SIZE = 64;
 const int WINDOW_WIDTH = 800;
@@ -12,10 +13,10 @@ static const int PLAYER_MOVEMENT_SPEED = 4;
 int main(int argc, char* args[])
 {
 	//Initialise the video to allow for display on the window
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO) < -1)
 	{
 		//If a -1 is called then the video couldn't be found such as no video card
-		std::cout << "SDL_Init failed: " << SDL_GetError() << std::endl;
+		throw InitialisationError("SDL_Init failed");
 	}
 	else
 	{
@@ -26,7 +27,7 @@ int main(int argc, char* args[])
 		if (window == nullptr)
 		{
 			//Get error message if the window isn't created
-			std::cout << "SDL_CreateWindow failed: " << SDL_GetError() << std::endl;
+			throw InitialisationError("SDL_CreateWindow failed");
 		}
 		else
 		{
@@ -36,7 +37,7 @@ int main(int argc, char* args[])
 
 			if (renderer == nullptr)
 			{
-				std::cout << "SDL_CreateRenderer: " << SDL_GetError() << std::endl;
+				throw InitialisationError("SDL_CreateRenderer failed");
 			}
 
 			//setting player texture
