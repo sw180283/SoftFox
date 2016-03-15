@@ -2,6 +2,13 @@
 ##Comp150 Group Project
 ###Project Team: Sam, Thomas, Dean, Octavian
 
+[First Time Downloading Folder](#first-time-downloading-folder)
+[First Trello Sprint Plan](#first-trello-sprint-plan)
+[Week 1](#week-1--first-pair-programming-session--sprite-render)
+
+#First Time Downloading Folder
+The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
+
 ##First Trello Sprint Plan
 The first sprint review is: 11/03/2016
 
