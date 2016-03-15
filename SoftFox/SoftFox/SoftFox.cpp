@@ -13,7 +13,7 @@ static const int PLAYER_MOVEMENT_SPEED = 4;
 int main(int argc, char* args[])
 {
 	//Initialise the video to allow for display on the window
-	if (SDL_Init(SDL_INIT_VIDEO) < -1)
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		//If a -1 is called then the video couldn't be found such as no video card
 		throw InitialisationError("SDL_Init failed");
