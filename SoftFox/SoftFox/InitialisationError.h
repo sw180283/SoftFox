@@ -9,7 +9,7 @@ public:
 	InitialisationError(const std::string& msg);
 	const char* what() { return message.c_str(); }
 
-//What does this do?
+//Private means this string message is only accessed from this class
 private:
 	std::string message;
 };
