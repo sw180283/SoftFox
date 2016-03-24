@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "SoftFox.h"
 #include "InitialisationError.h"
+#include "Texture.h"
 
 const int SPRITE_SIZE = 64;
 const int WINDOW_WIDTH = 800;
@@ -13,7 +14,7 @@ static const int PLAYER_MOVEMENT_SPEED = 4;
 int main(int argc, char* args[])
 {
 	//Initialise the video to allow for display on the window
-	if (SDL_Init(SDL_INIT_VIDEO) < 1)
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		//If a -1 is called then the video couldn't be found such as no video card
 		throw InitialisationError("SDL_Init failed");
@@ -41,10 +42,10 @@ int main(int argc, char* args[])
 			}
 
 			//setting player texture
-			SDL_Texture* playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
+			Texture* playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
 
 			//setting platform texture
-			SDL_Texture* platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+			Texture* platformSprite = new Texture("..\\Sprites\\platform_sprite.png");
 
 			if (playerSprite == nullptr || platformSprite == nullptr)
 			{
@@ -97,22 +98,10 @@ int main(int argc, char* args[])
 					SDL_RenderClear(renderer);
 					
 					//Drawing player sprite (texture class)
-					SDL_Rect dest;
-					dest.x = playerX - SPRITE_SIZE / 2;
-					dest.y = playerY - SPRITE_SIZE / 2;
-					dest.w = SPRITE_SIZE;
-					dest.h = SPRITE_SIZE;
-					SDL_RenderCopy(renderer, playerSprite, nullptr, &dest);
-					
-					//SDL_RenderPresent(renderer);
+					playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 					
 					//Draw platform sprite texture
-					SDL_Rect destP;
-					destP.x = 0; //platformX - SPRITE_SIZE / 2;
-					destP.y = platformY - SPRITE_SIZE / 2;
-					destP.w = 800;// SPRITE_SIZE;
-					destP.h = 10;// SPRITE_SIZE;
-					SDL_RenderCopy(renderer, platformSprite, nullptr, &destP);
+					platformSprite->render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
 					
 					SDL_RenderPresent(renderer);
 					
