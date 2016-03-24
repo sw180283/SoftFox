@@ -1,12 +1,15 @@
 #pragma once
 
 #include "resource.h"
-/*
+#include "Texture.h"
+
 class SoftFox
 {
 public:
-	SoftGame();
+	SoftFox();
 	~SoftFox();
+
+	void run();
 
 	static const int WINDOW_HEIGHT = 600;
 	static const int WINDOW_WIDTH = 800;
@@ -20,6 +23,9 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
+	Texture playerSprite;
+	Texture platformSprite;
+
 	int playerX, playerY;
+	bool running;
 };
-*/
