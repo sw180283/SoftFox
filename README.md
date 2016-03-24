@@ -78,3 +78,8 @@ After we all looked through the first branch, and knew what every line of code d
 As we have a lot of work this week, we decided to focus our project on researching how other games have approached a similiar target audience. This is required as part of our commersial awareness but it gave us some ideas on how to approach level layout and game introduction. We looked into our target audience specificly their age range and what issues relate to them which can be implemented into our game.
 
 An issue for this week was that we didn't allocate enough time to coding our project so it hasn't changed much from last week. Also, more commits are recommended to improve professional practise. We seem to work primarily when we are avaliable to meet in person at the moment so we can pair program and overcome challanges with the program together.
+
+##The Second Sprint Review
+With Agile practise, we are responsible for taking our own user stories from the Trello board. However due to our recent workload and scheduling issues, we didn't achieve all the user stories we had anticipated however we did complete some user stories which are crucial to our commercial and target audience research.
+
+We have discussed the lack of productivity over this sprint and have taken steps to ensure that for the further sprints we can work around scheduling issues and other assignments. We have decided to use Skype screen share and to use Facebook chat to schedule pair programming as it notifies members of messages whereas we found with Slack it was easy to miss messages.
