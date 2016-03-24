@@ -13,7 +13,7 @@
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
 
 ##Issue With Syncing Project
-Try backing up your work and delete then reclone project.
+Delete the SDF file or try backing up your work and delete then reclone project.
 
 ##Issue With Merging Conflict
 Is there a SDF file you're trying to upload?
