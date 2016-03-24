@@ -20,6 +20,7 @@ void Texture::render(SDL_Renderer* renderer, int x, int y, int width, int height
 {
 	if (!texture)
 	{
+		//load texture using renderer with file name of type string using c style
 		texture = IMG_LoadTexture(renderer, fileName.c_str());
 
 		if (!texture)
