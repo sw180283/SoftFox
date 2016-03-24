@@ -60,3 +60,13 @@ The overall, we feel this sprint went well as we achieved all but one of our int
 ![alt text][Start_of_second_sprint] 
 
 [Start_of_second_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/Second_Group_Sprint_Plan.jpg "Start Of Second Sprint"
+
+##Week 3 - Code Clean Up Branches
+In this week, we attempted to use branches to improve our agile practises, in addition to communication about code issues. We have been using Facebook and Slack to coomunicate some of this issues however Github pull request allows us to see differences in code and comment on individual lines.
+
+After we all looked through the first branch, and knew what every line of code did and commented it, we merged this branch with the main. There were some issues to start with as there were some merge conflicts, or syncs wouldn't exit on Github desktop however these were resolved when we deleted some unnecessary folders and files and added them to the gitignore. Now our project downloads faster and it is better for seeing where the code has changed.
+
+##Week 4 - Research Into Similar Games
+As we have a lot of work this week, we decided to focus our project on researching how other games have approached a similiar target audience. This is required as part of our commersial awareness but it gave us some ideas on how to approach level layout and game introduction.
+
+An issue for this week was that we didn't allocate enough time to coding our project so it hasn't changed much from last week. Also, more commits are recommended to improve professional practise.
