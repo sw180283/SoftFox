@@ -72,12 +72,12 @@ int main(int argc, char* args[])
 						{
 							//Create a case for quitting the window and set running to false to deconstruct the window
 							//Break or system breaks
-						case SDL_QUIT:
-							running = false;
-							break;
+							case SDL_QUIT:
+								running = false;
+								break;
 
-						default:
-							break;
+							default:
+								break;
 						}
 					}
 
