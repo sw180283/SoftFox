@@ -8,7 +8,7 @@
 [Week 2](#week-2---second-pair-programming-session---move-character-around-screen,-render-platforms-on-screen,-change-sprite-to-fox)  
 [The First Sprint Review](#the-first-sprint-review)  
 [Start Of Second Sprint](#start-of-second-sprint)  
-[Week 3](#week-3---code-clean-up-branches)
+[Week 3](#week-3---code-clean-up-branches)  
 [Week 4](#week-4---research-into-similar-games)
 
 #First Time Downloading Folder
