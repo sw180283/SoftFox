@@ -157,6 +157,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hunter.h" />
     <ClInclude Include="InitialisationError.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SoftFox.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="InitialisationError.cpp" />
     <ClCompile Include="SoftFox.cpp" />
     <ClCompile Include="stdafx.cpp">
