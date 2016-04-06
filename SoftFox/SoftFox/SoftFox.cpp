@@ -7,6 +7,8 @@
 #include "Texture.h"
 
 SoftFox::SoftFox()
+	: playerSprite("..\\Sprites\\red_fox_sprite_1.gif"),
+	platformSprite("..\\Sprites\\platform_sprite.png")
 {
 	//Initialise the video to allow for display on the window
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -47,9 +49,6 @@ SoftFox::~SoftFox()
 
 void SoftFox::run()
 {
-
-	Texture* playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
-	Texture* platformSprite = new Texture("..\\Sprites\\platform_sprite.png");
 
 	//Set a boolean to keep the window running until false
 	running = true;
