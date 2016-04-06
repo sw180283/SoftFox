@@ -93,10 +93,10 @@ void SoftFox::run()
 		SDL_RenderClear(renderer);
 					
 		//Drawing player sprite (texture class)
-		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+		playerSprite.render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 					
 		//Draw platform sprite texture
-		platformSprite->render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
+		platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
 					
 		SDL_RenderPresent(renderer);				
 	}
