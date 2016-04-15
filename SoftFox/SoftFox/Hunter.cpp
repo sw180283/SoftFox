@@ -6,9 +6,11 @@
 
 Hunter::Hunter()
 {
-	const int SPRITE_SIZE = 64;
+	const int SPRITE_SIZE = 74;
 	int HunterX = 400;
 	int HunterY = 400;
+	const int WINDOW_WIDTH = 800;
+	const int WINDOW_HEIGHT = 600;
 
 	SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 
