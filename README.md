@@ -10,6 +10,7 @@
 [Start Of Second Sprint](#start-of-second-sprint)  
 [Week 3](#week-3---code-clean-up-branches)  
 [Week 4](#week-4---research-into-similar-games)
+[Wekk 5-7](#week-5---7---notepad-map-design-implementation)
 
 #First Time Downloading Folder
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
@@ -83,3 +84,8 @@ An issue for this week was that we didn't allocate enough time to coding our pro
 With Agile practise, we are responsible for taking our own user stories from the Trello board. However due to our recent workload and scheduling issues, we didn't achieve all the user stories we had anticipated however we did complete some user stories which are crucial to our commercial and target audience research.
 
 We have discussed the lack of productivity over this sprint and have taken steps to ensure that for the further sprints we can work around scheduling issues and other assignments. We have decided to use Skype screen share and to use Facebook chat to schedule pair programming as it notifies members of messages whereas we found with Slack it was easy to miss messages.
+
+##Week 5-7 - Notepad Map Design Implementation
+Over the holidays, we attempted to continue working on our grou project while working on our individual projects. Using Skype and Google Hangouts to screen share. This was effective in our pair programming practise.  
+
+In order to create our levels, we wanted to use a case diagram with a text file to describe and give information to the texture renderer. This would then allow for easy level design. The case diagram would also allow for easily collision detection and tiled levels.
