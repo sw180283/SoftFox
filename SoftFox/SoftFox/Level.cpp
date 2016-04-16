@@ -5,7 +5,6 @@
 Level::Level(const std::string& fileName)
 {
 	//if stream allows for reading of text file
-	//TO DO establish levelFile
 	std::ifstream levelFile(fileName);
 
 	//vector datatype with element type string called lines
@@ -58,15 +57,66 @@ Level::Level(const std::string& fileName)
 				textSymbol = line[x];
 			}
 
+			//if the end of the line is reached, the textSymbol is blank
 			else
 			{
+				textSymbol = ' ';
+			}
 
+			//check a series of constant expressions for each textSymbol
+			switch (textSymbol)
+			{
+			//platform
+			case 'P':
+				//possibly change height and width around
+				//width + x is the column position
+				//y is the height
+				//set levelData to true for later isWall
+				levelData[y * width + x] = true;
+				break;
+
+			//player start position
+			case 'S':
+				//set levelData to false for later isWall
+				levelData[y * width + x] = false;
+				startPosition = Coordinates(x, y);
+				break;
+
+			//villian
+			case'V':
+				levelData[y * width + x] = false;
+				villianPosition = Coordinates(x, y);
+				break;
+
+			//TO DO mushrooms
+
+			default:
+				levelData[y * width + x] = false;
+				break;
 			}
 		}
 	}
 }
 
-
+//deconstructor
 Level::~Level()
 {
+	delete[] levelData;
+}
+
+//check for walls for later collisions
+//if isWall return true then character cannot move through it
+bool Level::isWall(int x, int y) const
+{
+	//if x and y inside the game window check levelData for boolean
+	if (x >= 0 && x < width && y >= 0 && y < height)
+	{
+		return levelData[y * width + x];
+	}
+
+	//if x and y are outside of the game window
+	else
+	{
+		return true;
+	}
 }

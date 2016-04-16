@@ -22,4 +22,7 @@
 #include <SDL.h> 
 #include <SDL_image.h>
 #include <iostream>
-#include <ifstream>
+#include <fstream>
+#include <vector>
+#include <map>
+#include <string>
