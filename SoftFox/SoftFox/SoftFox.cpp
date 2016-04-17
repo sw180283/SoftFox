@@ -5,14 +5,21 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
+#include "Level.h" 
 
+
+const char* level_name = "";//folder location in quotes
 const int SPRITE_SIZE = 64;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 static const int PLAYER_MOVEMENT_SPEED = 4;
 
+
+
 int main(int argc, char* args[])
 {
+	level = new Level(const level_name);
+
 	//Initialise the video to allow for display on the window
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -40,6 +47,11 @@ int main(int argc, char* args[])
 			{
 				throw InitialisationError("SDL_CreateRenderer failed");
 			}
+		
+
+
+			//TO DO texture villian
+
 
 			//setting player texture
 			Texture* playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
@@ -104,8 +116,39 @@ int main(int argc, char* args[])
 					platformSprite->render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
 					
 					SDL_RenderPresent(renderer);
+
 					
 				}
+
+				void drawtile(int x, int y, SDL_Texture* texture)
+				{
+					SDL_Rect dest;
+					dest.x = x* tileSize;
+					dest.y = y* tileSize;
+					dest.w = tileSize;
+					dest.h = tileSize;
+					SDL_RenderCopy(renderer, texture, nullptr, &dest);
+				}
+
+				void drawlevel()
+				{
+					for () int y = 0; y < level->getHeight(; y++)
+					{
+						for () int x = 0; x < level->getWidth(; x++)
+						{
+							if (level->isWall(x, y))
+							{
+								drawtile(x, y, platformSprite);
+							}
+							if (level->getStartx()==x( x&& map -> getstarty()==y)
+							{
+								drawtile(x, y, playerSprite);
+							}
+						}
+					}
+
+				}
+
 
 				//SDL_Delay(2000);
 
