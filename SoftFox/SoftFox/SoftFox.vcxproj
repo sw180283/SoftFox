@@ -160,6 +160,7 @@
     <ClInclude Include="Coordinates.h" />
     <ClInclude Include="InitialisationError.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Physics.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SoftFox.h" />
     <ClInclude Include="stdafx.h" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="InitialisationError.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="SoftFox.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
