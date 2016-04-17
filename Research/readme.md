@@ -18,6 +18,12 @@
 -Having other characters in the game while users play who interacts with them could also be useful. Teaching users social skills and helping a target audience who are forming relationships with people for the first time. The character could give help and support and talk generally to the player throughout.
 
 
+##Educational games
+
+###EcoQuest
+
+
+
 ##general ideas for games
 ###Any ideas for the game 
 
