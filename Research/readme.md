@@ -21,7 +21,7 @@
 ##Educational games examples
 
 ###EcoQuest
-EcoQuest is an educational game tagreted toward 12 year olds. I am lloking at it to establish key mechanics and content the game uses to be both fun and educational.
+EcoQuest is an educational game tagreted toward 12 year olds. I am looking at it to establish key mechanics and content the game uses to be both fun and educational.
 
 
 ##general ideas for games
