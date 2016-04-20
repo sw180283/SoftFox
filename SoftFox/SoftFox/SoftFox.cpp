@@ -5,6 +5,7 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
+#include "Level.h"
 
 SoftFox::SoftFox()
 	: playerSprite("..\\Sprites\\red_fox_sprite_1.gif"),
@@ -16,6 +17,11 @@ SoftFox::SoftFox()
 		//If a -1 is called then the video couldn't be found such as no video card
 		throw InitialisationError("SDL_Init failed");
 	}
+
+	//level = new Level(level_name);
+
+	//tileSize = 800 / level->getHeight();
+
 	//Create the window of the program with (title, x, y, width, height, flag)
 	SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 
@@ -101,3 +107,32 @@ void SoftFox::run()
 		SDL_RenderPresent(renderer);				
 	}
 }
+/*
+void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
+{
+	SDL_Rect dest;
+	dest.x = x* tileSize;
+	dest.y = y* tileSize;
+	dest.w = tileSize;
+	dest.h = tileSize;
+	SDL_RenderCopy(renderer, texture, nullptr, &dest);
+}
+
+void SoftFox::drawLevel()
+{
+	for (int y = 0; y < level->getHeight; y++)
+	{
+		for (int x = 0; x < level->getWidth; x++)
+		{
+			if (level->isWall(x, y))
+			{
+				drawTile(x, y, platformSprite);
+			}
+			if (level->getStartX() == x && level->getStartY() == y)
+			{
+				drawTile(x, y, playerSprite);
+			}
+		}
+	}
+}
+*/

@@ -157,7 +157,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Coordinates.h" />
     <ClInclude Include="InitialisationError.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SoftFox.h" />
     <ClInclude Include="SoftFox_Main.h" />
@@ -167,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InitialisationError.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="SoftFox.cpp" />
     <ClCompile Include="SoftFox_Main.cpp" />
     <ClCompile Include="stdafx.cpp">
