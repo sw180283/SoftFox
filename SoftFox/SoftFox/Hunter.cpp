@@ -20,8 +20,8 @@ Hunter::Hunter()
 		throw InitialisationError("SDL_CreateRenderer failed");
 	}
 
-	//setting player texture
-	Texture* HunterSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
+	//setting player texture //temporary image TO DO change to my own image
+	Texture* HunterSprite = new Texture("C:/Users/Tom/Downloads/elmer.jpg");
 
 	//Drawing player sprite (texture class)
 	HunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
