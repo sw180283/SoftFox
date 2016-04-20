@@ -86,6 +86,7 @@ With Agile practise, we are responsible for taking our own user stories from the
 We have discussed the lack of productivity over this sprint and have taken steps to ensure that for the further sprints we can work around scheduling issues and other assignments. We have decided to use Skype screen share and to use Facebook chat to schedule pair programming as it notifies members of messages whereas we found with Slack it was easy to miss messages.
 
 ##Week 5-7 - Notepad Map Design Implementation
+###Task completed by: Thomas and Sam (Pair programming) 
 Over the holidays, we attempted to continue working on our grou project while working on our individual projects. Using Skype and Google Hangouts to screen share. This was effective in our pair programming practise.  
 
 In order to create our levels, we wanted to use a case diagram with a text file to describe and give information to the texture renderer. This would then allow for easy level design. The case diagram would also allow for easily collision detection and tiled levels.
