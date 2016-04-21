@@ -17,7 +17,7 @@ public:
 	static const int SPRITE_SIZE = 64;
 	static const int PLAYER_MOVEMENT_SPEED = 4;
 
-	const char* level_name = "Level\\level.txt";
+	const char* level_name = "..\\Level\\Level.txt";
 
 	int getPlayerX() { return playerX; }
 	int getPlayerY() { return playerY; }
@@ -26,8 +26,8 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
-	Texture playerSprite;
-	Texture platformSprite;
+	SDL_Texture* playerSprite;
+	SDL_Texture* platformSprite;
 
 	Level* level;
 	//individually draws tiles

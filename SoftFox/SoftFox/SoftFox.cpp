@@ -8,8 +8,7 @@
 #include "Level.h"
 
 SoftFox::SoftFox()
-	: playerSprite("..\\Sprites\\red_fox_sprite_1.gif"),
-	platformSprite("..\\Sprites\\platform_sprite.png")
+
 {
 	//Initialise the video to allow for display on the window
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -18,9 +17,13 @@ SoftFox::SoftFox()
 		throw InitialisationError("SDL_Init failed");
 	}
 
-	//level = new Level(level_name);
+	level = new Level(level_name);
 
-	//tileSize = 800 / level->getHeight();
+	tileSize = 800 / level->getHeight();
+
+	//Load sprites locations in
+	playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
+	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
 
 	//Create the window of the program with (title, x, y, width, height, flag)
 	SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
@@ -97,17 +100,19 @@ void SoftFox::run()
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
+
+		drawLevel();
 					
 		//Drawing player sprite (texture class)
-		playerSprite.render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+		//playerSprite.render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 					
 		//Draw platform sprite texture
-		platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
+		//platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
 					
 		SDL_RenderPresent(renderer);				
 	}
 }
-/*
+
 void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
 {
 	SDL_Rect dest;
@@ -135,4 +140,3 @@ void SoftFox::drawLevel()
 		}
 	}
 }
-*/
