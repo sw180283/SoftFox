@@ -5,7 +5,11 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
+#include "Hunter.h"
 
+//Hunter (Thomas)
+int HunterX = 400;
+int HunterY = 400;
 const int SPRITE_SIZE = 64;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
@@ -44,10 +48,13 @@ int main(int argc, char* args[])
 			//setting player texture
 			Texture* playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
 
+			//Hunter (Thomas)
+			Texture* HunterSprite = new Texture("..\\Sprites\\elmer.jpg");
+
 			//setting platform texture
 			Texture* platformSprite = new Texture("..\\Sprites\\platform_sprite.png");
 
-			if (playerSprite == nullptr || platformSprite == nullptr)
+			if (playerSprite == nullptr || platformSprite == nullptr || HunterSprite == nullptr)
 			{
 				MessageBoxA(NULL, SDL_GetError(), "IMG_LoadTexture failed", MB_OK | MB_ICONERROR);
 			}
@@ -99,6 +106,9 @@ int main(int argc, char* args[])
 					
 					//Drawing player sprite (texture class)
 					playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+
+					//Drawing hunter sprite (Thomas)
+					HunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
 					
 					//Draw platform sprite texture
 					platformSprite->render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
