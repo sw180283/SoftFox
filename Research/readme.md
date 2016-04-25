@@ -20,6 +20,8 @@
 ##Similar Platform Style Games
 Ori and the Blind Forest is a platform game that uses it's art style and emotive characters to drive the narrative and gameplay. With this, it achieves more than just a platform game by enchanting its player. For our game, this is one way to make our project stand out as its character Riley is aimed at children and should make the focus of the game about the character and not the goal. This also leads into the aim to make children more aware of the natural habitat while providing a safe and fun learning experience.
 
+It also uses a companion to make the game more fun and gives the children a sense of friendship as someone is looking out for the player. While this is a stretch goal for our project, this integration of using a companion can make the player more immersed in the game.
+
 ##Educational games examples
 
 ###EcoQuest
