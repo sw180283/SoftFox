@@ -26,8 +26,9 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
-	SDL_Texture* playerSprite;
+	Texture* playerSprite;
 	SDL_Texture* platformSprite;
+	SDL_Texture* backgroundImage;
 
 	Level* level;
 	//individually draws tiles

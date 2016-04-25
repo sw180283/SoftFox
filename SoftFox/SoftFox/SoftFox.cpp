@@ -40,9 +40,12 @@ SoftFox::SoftFox()
 	}
 
 	//Load sprites locations in
-	playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
+	//playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
 	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
 
+
+	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
 }
 
 SoftFox::~SoftFox()
@@ -62,11 +65,9 @@ void SoftFox::run()
 
 	//Set a boolean to keep the window running until false
 	running = true;
-	playerX = WINDOW_WIDTH / 2;
-	playerY = WINDOW_HEIGHT / 2;
 
-	int platformX = 40;
-	int platformY = 400;
+	playerX = tileSize * level->getStartX();
+	playerY = tileSize * level->getStartY();
 
 	while (running)
 	{
@@ -102,10 +103,12 @@ void SoftFox::run()
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
+		SDL_RenderCopy(renderer, backgroundImage, nullptr, NULL);
+
 		drawLevel();
 					
 		//Drawing player sprite (texture class)
-		//playerSprite.render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 					
 		//Draw platform sprite texture
 		//platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
@@ -134,10 +137,12 @@ void SoftFox::drawLevel()
 			{
 				drawTile(x, y, platformSprite);
 			}
+			/*
 			if (level->getStartX() == x && level->getStartY() == y)
 			{
 				drawTile(x, y, playerSprite);
 			}
+			*/
 		}
 	}
 }
