@@ -1,8 +1,6 @@
 #pragma once
 #include "stdafx.h"
 #include "Level.h"
-#include "SoftFox.h"
-
 
 Level::Level(const std::string& fileName)
 {

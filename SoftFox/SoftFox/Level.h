@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Coordinates.h"
-#include "SoftFox.h"
 
 class Level
 {

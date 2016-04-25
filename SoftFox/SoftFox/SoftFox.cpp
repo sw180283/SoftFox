@@ -125,9 +125,9 @@ void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
 
 void SoftFox::drawLevel()
 {
-	for (int y = 0; y < level->getHeight; y++)
+	for (int y = 0; y < level->getHeight(); y++)
 	{
-		for (int x = 0; x < level->getWidth; x++)
+		for (int x = 0; x < level->getWidth(); x++)
 		{
 			if (level->isWall(x, y))
 			{
