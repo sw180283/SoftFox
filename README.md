@@ -10,6 +10,7 @@
 [Start Of Second Sprint](#start-of-second-sprint)  
 [Week 3](#week-3---code-clean-up-branches)  
 [Week 4](#week-4---research-into-similar-games)  
+[The Second Sprint Review](#the-second-sprint-review)  
 [Week 5-7](#week-5-7---notepad-map-design-implementation)  
 
 #First Time Downloading Folder
