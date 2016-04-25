@@ -17,6 +17,8 @@
 
 -Having other characters in the game while users play who interacts with them could also be useful. Teaching users social skills and helping a target audience who are forming relationships with people for the first time. The character could give help and support and talk generally to the player throughout.
 
+##Similar Platform Style Games
+Ori and the Blind Forest is a platform game that uses it's art style and emotive characters to drive the narrative and gameplay. With this, it achieves more than just a platform game by enchanting its player. For our game, this is one way to make our project stand out as its character Riley is aimed at children and should make the focus of the game about the character and not the goal. This also leads into the aim to make children more aware of the natural habitat while providing a safe and fun learning experience.
 
 ##Educational games examples
 
