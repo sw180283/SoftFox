@@ -88,6 +88,12 @@ We have discussed the lack of productivity over this sprint and have taken steps
 
 ##Week 5-7 - Notepad Map Design Implementation
 ###Task completed by: Thomas and Sam (Pair programming) 
-Over the holidays, we attempted to continue working on our grou project while working on our individual projects. Using Skype and Google Hangouts to screen share. This was effective in our pair programming practise.  
+Over the holidays, we attempted to continue working on our group project while working on our individual projects. Using Skype and Google Hangouts to screen share. This was effective in our pair programming practise.  
 
-In order to create our levels, we wanted to use a case diagram with a text file to describe and give information to the texture renderer. This would then allow for easy level design. The case diagram would also allow for easily collision detection and tiled levels.
+In order to create our levels, we wanted to use a swtich case with a text file to describe and give information to the texture renderer. This would then allow for easy level design. This method would also allow for easily collision detection and tiled levels.
+
+The main obsticle with this method is that we have struggled to overcome an error in our code. In order to overcome this error, we should submit a pull request and ask for additional advice from our lecturers.
+
+#Week 8 - Tiled Level Layout Implemented
+###Task completed by: Thomas and Sam (Pair programming) 
+Having discussed the error the was interuptting our work with our lecturers, we found that the error was an issue with a circuluar include of headers where SoftFox.h was included in Level.h and vice versa. This has taught our group more about C++/SDL and how to manage and maintain the includes. 
