@@ -19,11 +19,7 @@ SoftFox::SoftFox()
 
 	level = new Level(level_name);
 
-	tileSize = 800 / level->getHeight();
-
-	//Load sprites locations in
-	playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
-	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+	tileSize = WINDOW_HEIGHT / level->getHeight();
 
 	//Create the window of the program with (title, x, y, width, height, flag)
 	SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
@@ -42,6 +38,11 @@ SoftFox::SoftFox()
 	{
 		throw InitialisationError("SDL_CreateRenderer failed");
 	}
+
+	//Load sprites locations in
+	playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
+	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+
 }
 
 SoftFox::~SoftFox()

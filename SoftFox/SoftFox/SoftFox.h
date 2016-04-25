@@ -2,7 +2,7 @@
 
 #include "resource.h"
 #include "Texture.h"
-# include "Level.h"
+#include "Level.h"
 
 class SoftFox
 {

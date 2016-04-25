@@ -1,4 +1,6 @@
-PPPPPP
-P            P
+PPPPPPPP
+P       
+P 
 P
-PPPPPP
+P       
+PPPPPPPP
