@@ -1,6 +1,6 @@
+#pragma once
 #include "stdafx.h"
 #include "Level.h"
-
 
 Level::Level(const std::string& fileName)
 {
@@ -31,7 +31,7 @@ Level::Level(const std::string& fileName)
 			width = line.length();
 		}
 	}
-	
+
 	//the number of rows/line stored in lines
 	height = lines.size();
 
@@ -66,7 +66,7 @@ Level::Level(const std::string& fileName)
 			//check a series of constant expressions for each textSymbol
 			switch (textSymbol)
 			{
-			//platform
+				//platform
 			case 'P':
 				//possibly change height and width around
 				//width + x is the column position
@@ -75,20 +75,23 @@ Level::Level(const std::string& fileName)
 				levelData[y * width + x] = true;
 				break;
 
-			//player start position
+				//player start position
+
 			case 'S':
 				//set levelData to false for later isWall
 				levelData[y * width + x] = false;
 				startPosition = Coordinates(x, y);
 				break;
 
-			//villian
+
+				//villian
 			case'V':
 				levelData[y * width + x] = false;
 				villianPosition = Coordinates(x, y);
 				break;
 
-			//TO DO mushrooms
+				//TO DO mushrooms
+
 
 			default:
 				levelData[y * width + x] = false;
@@ -119,4 +122,6 @@ bool Level::isWall(int x, int y) const
 	{
 		return true;
 	}
+
 }
+

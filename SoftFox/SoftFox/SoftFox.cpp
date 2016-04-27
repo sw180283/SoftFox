@@ -5,6 +5,7 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
+<<<<<<< HEAD
 #include "Level.h" 
 
 
@@ -17,6 +18,12 @@ static const int PLAYER_MOVEMENT_SPEED = 4;
 //const char* level_name = "..\\Level\\Level.txt";
 
 int main(int argc, char* args[])
+=======
+#include "Level.h"
+
+SoftFox::SoftFox()
+
+>>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
 {
 	//level = new Level(const level_name);
 
@@ -26,23 +33,30 @@ int main(int argc, char* args[])
 		//If a -1 is called then the video couldn't be found such as no video card
 		throw InitialisationError("SDL_Init failed");
 	}
-	else
+
+	level = new Level(level_name);
+
+	tileSize = WINDOW_HEIGHT / level->getHeight();
+
+	//Create the window of the program with (title, x, y, width, height, flag)
+	SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+
+	//If the window returns a null
+	if (window == nullptr)
 	{
-		//Create the window of the program with (title, x, y, width, height, flag)
-		SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+		//Get error message if the window isn't created
+		throw InitialisationError("SDL_CreateWindow failed");
+	}
 
-		//If the window returns a null
-		if (window == nullptr)
-		{
-			//Get error message if the window isn't created
-			throw InitialisationError("SDL_CreateWindow failed");
-		}
-		else
-		{
+	//Create a pointer to a renderer that renders in the window, in any position for the flag of syncing the frame rate of the computer for 60fps
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 
-			//Create a pointer to a renderer that renders in the window, in any position for the flag of syncing the frame rate of the computer for 60fps
-			SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+	if (renderer == nullptr)
+	{
+		throw InitialisationError("SDL_CreateRenderer failed");
+	}
 
+<<<<<<< HEAD
 			if (renderer == nullptr)
 			{
 				throw InitialisationError("SDL_CreateRenderer failed");
@@ -52,29 +66,76 @@ int main(int argc, char* args[])
 
 			//TO DO texture villian
 
+=======
+	//Load sprites locations in
+	//playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
+	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+	platformSprite_dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
+	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
 
-			//setting player texture
-			Texture* playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
 
-			//setting platform texture
-			Texture* platformSprite = new Texture("..\\Sprites\\platform_sprite.png");
+	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
+}
 
-			if (playerSprite == nullptr || platformSprite == nullptr)
+SoftFox::~SoftFox()
+{
+	//Remove the renderer
+	SDL_DestroyRenderer(renderer);
+
+	//Remove the window
+	SDL_DestroyWindow(window);
+	
+	//Quit to programm running
+	SDL_Quit();
+}
+>>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
+
+void SoftFox::run()
+{
+
+	//Set a boolean to keep the window running until false
+	running = true;
+
+	playerX = tileSize * level->getStartX();
+	playerY = tileSize * level->getStartY();
+
+	while (running)
+	{
+		//Set an event
+		SDL_Event ev;
+		if (SDL_PollEvent(&ev))
+		{
+			switch (ev.type)
 			{
-				MessageBoxA(NULL, SDL_GetError(), "IMG_LoadTexture failed", MB_OK | MB_ICONERROR);
+				//Create a case for quitting the window and set running to false to deconstruct the window
+				//Break or system breaks
+				case SDL_QUIT:
+					running = false;
+					break;
+
+				default:
+					break;
 			}
+		}
 
-			else
-			{
+		// Check keyboard state
+		const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+		if (keyboardState[SDL_SCANCODE_UP])
+			playerY -= PLAYER_MOVEMENT_SPEED;
+		if (keyboardState[SDL_SCANCODE_DOWN])
+			playerY += PLAYER_MOVEMENT_SPEED;
+		if (keyboardState[SDL_SCANCODE_LEFT])
+			playerX -= PLAYER_MOVEMENT_SPEED;
+		if (keyboardState[SDL_SCANCODE_RIGHT])
+			playerX += PLAYER_MOVEMENT_SPEED;
 
-				//Set a boolean to keep the window running until false
-				bool running = true;
-				int playerX = WINDOW_WIDTH / 2;
-				int playerY = WINDOW_HEIGHT / 2;
+		//Change the colour of the background renderer and then clear the colour
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		SDL_RenderClear(renderer);
 
-				int platformX = 40;
-				int platformY = 400;
+		SDL_RenderCopy(renderer, backgroundImage, nullptr, NULL);
 
+<<<<<<< HEAD
 				while (running)
 				{
 					//Set an event
@@ -111,10 +172,14 @@ int main(int argc, char* args[])
 					
 					//Drawing player sprite (texture class)
 					playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+=======
+		drawLevel();
+>>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
 					
-					//Draw platform sprite texture
-					platformSprite->render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
+		//Drawing player sprite (texture class)
+		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 					
+<<<<<<< HEAD
 					SDL_RenderPresent(renderer);
 
 					//drawlevel();
@@ -123,18 +188,45 @@ int main(int argc, char* args[])
 
 
 				//SDL_Delay(2000);
-
-				//Remove the renderer
-				SDL_DestroyRenderer(renderer);
-			}
-			//Remove the window
-			SDL_DestroyWindow(window);
-		}
-		//Quit to programm running
-		SDL_Quit();
+=======
+		//Draw platform sprite texture
+		//platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
+					
+		SDL_RenderPresent(renderer);				
 	}
+}
 
-	return 0;
+void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
+{
+	SDL_Rect dest;
+	dest.x = x* tileSize;
+	dest.y = y* tileSize;
+	dest.w = tileSize;
+	dest.h = tileSize;
+	SDL_RenderCopy(renderer, texture, nullptr, &dest);
+}
+
+void SoftFox::drawLevel()
+{
+	for (int y = 0; y < level->getHeight(); y++)
+	{
+		for (int x = 0; x < level->getWidth(); x++)
+		{
+			if (level->isWall(x, y))
+			{
+				if (level->isWall(x,y-1) && y!=0)
+				{
+					drawTile(x, y, platformSprite_dirt);
+				}
+>>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
+
+				else
+				{
+					drawTile(x, y, platformSprite);
+				}
+			}
+		}
+	}
 }
 
 /*
