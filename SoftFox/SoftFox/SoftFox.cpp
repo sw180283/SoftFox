@@ -5,25 +5,9 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
-<<<<<<< HEAD
-#include "Level.h" 
-
-
-const char* level_name = "";//folder location in quotes
-const int SPRITE_SIZE = 64;
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
-static const int PLAYER_MOVEMENT_SPEED = 4;
-
-//const char* level_name = "..\\Level\\Level.txt";
-
-int main(int argc, char* args[])
-=======
 #include "Level.h"
 
 SoftFox::SoftFox()
-
->>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
 {
 	//level = new Level(const level_name);
 
@@ -56,17 +40,6 @@ SoftFox::SoftFox()
 		throw InitialisationError("SDL_CreateRenderer failed");
 	}
 
-<<<<<<< HEAD
-			if (renderer == nullptr)
-			{
-				throw InitialisationError("SDL_CreateRenderer failed");
-			}
-		
-
-
-			//TO DO texture villian
-
-=======
 	//Load sprites locations in
 	//playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
 	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
@@ -88,7 +61,6 @@ SoftFox::~SoftFox()
 	//Quit to programm running
 	SDL_Quit();
 }
->>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
 
 void SoftFox::run()
 {
@@ -135,60 +107,11 @@ void SoftFox::run()
 
 		SDL_RenderCopy(renderer, backgroundImage, nullptr, NULL);
 
-<<<<<<< HEAD
-				while (running)
-				{
-					//Set an event
-					SDL_Event ev;
-					if (SDL_PollEvent(&ev))
-					{
-						switch (ev.type)
-						{
-							//Create a case for quitting the window and set running to false to deconstruct the window
-							//Break or system breaks
-							case SDL_QUIT:
-								running = false;
-								break;
-
-							default:
-								break;
-						}
-					}
-
-					// Check keyboard state
-					const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-					if (keyboardState[SDL_SCANCODE_UP])
-						playerY -= PLAYER_MOVEMENT_SPEED;
-					if (keyboardState[SDL_SCANCODE_DOWN])
-						playerY += PLAYER_MOVEMENT_SPEED;
-					if (keyboardState[SDL_SCANCODE_LEFT])
-						playerX -= PLAYER_MOVEMENT_SPEED;
-					if (keyboardState[SDL_SCANCODE_RIGHT])
-						playerX += PLAYER_MOVEMENT_SPEED;
-
-					//Change the colour of the background renderer and then clear the colour
-					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-					SDL_RenderClear(renderer);
-					
-					//Drawing player sprite (texture class)
-					playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
-=======
 		drawLevel();
->>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
 					
 		//Drawing player sprite (texture class)
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 					
-<<<<<<< HEAD
-					SDL_RenderPresent(renderer);
-
-					//drawlevel();
-
-				}
-
-
-				//SDL_Delay(2000);
-=======
 		//Draw platform sprite texture
 		//platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
 					
@@ -218,8 +141,6 @@ void SoftFox::drawLevel()
 				{
 					drawTile(x, y, platformSprite_dirt);
 				}
->>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
-
 				else
 				{
 					drawTile(x, y, platformSprite);
@@ -228,33 +149,3 @@ void SoftFox::drawLevel()
 		}
 	}
 }
-
-/*
-void SoftFox::drawtile(int x, int y, SDL_Texture* texture)
-{
-	SDL_Rect dest;
-	dest.x = x* tileSize;
-	dest.y = y* tileSize;
-	dest.w = tileSize;
-	dest.h = tileSize;
-	SDL_RenderCopy(renderer, texture, nullptr, &dest);
-}
-
-void SoftFox::drawlevel()
-{
-	for (int y = 0; y < level->getHeight(); y++)
-	{
-		for (int x = 0; x < level->getWidth(); x++)
-		{
-			if (level->isWall(x, y))
-			{
-				drawtile(x, y, platformSprite);
-			}
-			if (level->getStartX() == x && level->getStartY() == y)
-			{
-				drawtile(x, y, playerSprite);
-			}
-		}
-	}
-}
-*/

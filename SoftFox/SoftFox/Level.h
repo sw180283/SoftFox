@@ -10,13 +10,8 @@ public:
 	~Level();
 
 	//method that returns width and height
-<<<<<<< HEAD
-	int getWidth()const{ return width; }
-	int getHeight()const{ return height; }
-=======
 	int getWidth()const { return width; }
 	int getHeight()const { return height; }
->>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
 
 	//startPositon of player
 	const Coordinates& getStartPosition() const { return startPosition; }
@@ -39,10 +34,4 @@ private:
 	Coordinates startPosition;
 	Coordinates villianPosition;
 	//Coordinates mushroomPositionArray;
-
-<<<<<<< HEAD
 };
-
-=======
-};
->>>>>>> b78612e8d83eec002ba273a2fd59f9bce04bb81b
