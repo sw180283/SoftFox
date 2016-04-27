@@ -28,7 +28,7 @@ private:
 
 	Texture* playerSprite;
 	SDL_Texture* platformSprite;
-	SDL_Texture* platformSprite_dirt;
+	SDL_Texture* platformSprite_Dirt;
 	SDL_Texture* backgroundImage;
 
 	Level* level;

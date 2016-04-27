@@ -41,17 +41,25 @@ SoftFox::SoftFox()
 	}
 
 	//Load sprites locations in
-	//playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
 	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
-	platformSprite_dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
+	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
-
-
 	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
 }
 
 SoftFox::~SoftFox()
 {
+	//Remove all rendered objects
+	if (platformSprite)
+	{
+		SDL_DestroyTexture(platformSprite);
+	}
+
+	if (platformSprite_Dirt)
+	{
+		SDL_DestroyTexture(platformSprite_Dirt);
+	}
+
 	//Remove the renderer
 	SDL_DestroyRenderer(renderer);
 
@@ -64,10 +72,10 @@ SoftFox::~SoftFox()
 
 void SoftFox::run()
 {
-
 	//Set a boolean to keep the window running until false
 	running = true;
 
+	//Set player start position to the tile using level
 	playerX = tileSize * level->getStartX();
 	playerY = tileSize * level->getStartY();
 
@@ -105,15 +113,14 @@ void SoftFox::run()
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
+		//Render the background first
 		SDL_RenderCopy(renderer, backgroundImage, nullptr, NULL);
 
+		//Draw the level using the method drawTile shown below
 		drawLevel();
 					
 		//Drawing player sprite (texture class)
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
-					
-		//Draw platform sprite texture
-		//platformSprite.render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
 					
 		SDL_RenderPresent(renderer);				
 	}
@@ -139,7 +146,7 @@ void SoftFox::drawLevel()
 			{
 				if (level->isWall(x,y-1) && y!=0)
 				{
-					drawTile(x, y, platformSprite_dirt);
+					drawTile(x, y, platformSprite_Dirt);
 				}
 				else
 				{
