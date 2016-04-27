@@ -5,23 +5,14 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
-<<<<<<< HEAD
 #include "Hunter.h"
+#include "Level.h"
 
 //Hunter (Thomas)
 int HunterX = 400;
 int HunterY = 400;
-const int SPRITE_SIZE = 64;
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
-static const int PLAYER_MOVEMENT_SPEED = 4;
-
-int main(int argc, char* args[])
-=======
-#include "Level.h"
 
 SoftFox::SoftFox()
->>>>>>> refs/remotes/origin/master
 {
 	//level = new Level(const level_name);
 
@@ -69,18 +60,6 @@ SoftFox::~SoftFox()
 		SDL_DestroyTexture(platformSprite);
 	}
 
-<<<<<<< HEAD
-			//Hunter (Thomas)
-			Texture* HunterSprite = new Texture("..\\Sprites\\elmer.jpg");
-
-			//setting platform texture
-			Texture* platformSprite = new Texture("..\\Sprites\\platform_sprite.png");
-
-			if (playerSprite == nullptr || platformSprite == nullptr || HunterSprite == nullptr)
-			{
-				MessageBoxA(NULL, SDL_GetError(), "IMG_LoadTexture failed", MB_OK | MB_ICONERROR);
-			}
-=======
 	if (platformSprite_Dirt)
 	{
 		SDL_DestroyTexture(platformSprite_Dirt);
@@ -88,7 +67,7 @@ SoftFox::~SoftFox()
 
 	//Remove the renderer
 	SDL_DestroyRenderer(renderer);
->>>>>>> refs/remotes/origin/master
+
 
 	//Remove the window
 	SDL_DestroyWindow(window);
@@ -106,50 +85,6 @@ void SoftFox::run()
 	playerX = tileSize * level->getStartX();
 	playerY = tileSize * level->getStartY();
 
-<<<<<<< HEAD
-				while (running)
-				{
-					//Set an event
-					SDL_Event ev;
-					if (SDL_PollEvent(&ev))
-					{
-						switch (ev.type)
-						{
-							//Create a case for quitting the window and set running to false to deconstruct the window
-							//Break or system breaks
-							case SDL_QUIT:
-								running = false;
-								break;
-
-							default:
-								break;
-						}
-					}
-
-					// Check keyboard state
-					const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-					if (keyboardState[SDL_SCANCODE_UP])
-						playerY -= PLAYER_MOVEMENT_SPEED;
-					if (keyboardState[SDL_SCANCODE_DOWN])
-						playerY += PLAYER_MOVEMENT_SPEED;
-					if (keyboardState[SDL_SCANCODE_LEFT])
-						playerX -= PLAYER_MOVEMENT_SPEED;
-					if (keyboardState[SDL_SCANCODE_RIGHT])
-						playerX += PLAYER_MOVEMENT_SPEED;
-
-					//Change the colour of the background renderer and then clear the colour
-					SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-					SDL_RenderClear(renderer);
-					
-					//Drawing player sprite (texture class)
-					playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
-
-					//Drawing hunter sprite (Thomas)
-					HunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
-					
-					//Draw platform sprite texture
-					platformSprite->render(renderer, 0, platformY, WINDOW_WIDTH*2, 10);
-=======
 	while (running)
 	{
 		//Set an event
@@ -189,10 +124,12 @@ void SoftFox::run()
 
 		//Draw the level using the method drawTile shown below
 		drawLevel();
->>>>>>> refs/remotes/origin/master
 					
 		//Drawing player sprite (texture class)
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+		
+		//Drawing hunter sprite (Thomas)
+		HunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
 					
 		SDL_RenderPresent(renderer);				
 	}
