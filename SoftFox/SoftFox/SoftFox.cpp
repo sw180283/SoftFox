@@ -42,6 +42,7 @@ SoftFox::SoftFox()
 	//Load sprites locations in
 	//playerSprite = IMG_LoadTexture(renderer, "..\\Sprites\\red_fox_sprite_1.gif");
 	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
+	platformSprite_dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
 
 
@@ -135,14 +136,16 @@ void SoftFox::drawLevel()
 		{
 			if (level->isWall(x, y))
 			{
-				drawTile(x, y, platformSprite);
+				if (level->isWall(x,y-1) && y!=0)
+				{
+					drawTile(x, y, platformSprite_dirt);
+				}
+
+				else
+				{
+					drawTile(x, y, platformSprite);
+				}
 			}
-			/*
-			if (level->getStartX() == x && level->getStartY() == y)
-			{
-				drawTile(x, y, playerSprite);
-			}
-			*/
 		}
 	}
 }
