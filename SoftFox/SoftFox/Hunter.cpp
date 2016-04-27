@@ -6,7 +6,7 @@
 
 Hunter::Hunter()
 {
-
+	
 }
 
 

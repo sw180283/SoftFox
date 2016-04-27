@@ -8,8 +8,8 @@
 #include "Hunter.h"
 
 //Hunter (Thomas)
-int HunterX = 400;
-int HunterY = 400;
+int HunterX = 500;
+int HunterY = 300;
 const int SPRITE_SIZE = 64;
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
