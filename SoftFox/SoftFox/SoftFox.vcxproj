@@ -157,13 +157,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <ClInclude Include="Hunter.h" />
-=======
     <ClInclude Include="Coordinates.h" />
->>>>>>> refs/remotes/origin/master
+    <ClInclude Include="Hunter.h" />
     <ClInclude Include="InitialisationError.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Physics.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SoftFox.h" />
     <ClInclude Include="SoftFox_Main.h" />
@@ -175,6 +173,7 @@
     <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="InitialisationError.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="SoftFox.cpp" />
     <ClCompile Include="SoftFox_Main.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -5,12 +5,7 @@
 #include "SoftFox.h"
 #include "InitialisationError.h"
 #include "Texture.h"
-#include "Hunter.h"
 #include "Level.h"
-
-//Hunter (Thomas)
-int HunterX = 400;
-int HunterY = 400;
 
 SoftFox::SoftFox()
 {
@@ -50,6 +45,8 @@ SoftFox::SoftFox()
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
 	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
+	//Hunter (Thomas)
+	hunterSprite = new Texture("..\\Sprites\\elmer.jpg");
 }
 
 SoftFox::~SoftFox()
@@ -67,7 +64,6 @@ SoftFox::~SoftFox()
 
 	//Remove the renderer
 	SDL_DestroyRenderer(renderer);
-
 
 	//Remove the window
 	SDL_DestroyWindow(window);
@@ -114,6 +110,12 @@ void SoftFox::run()
 			playerX -= PLAYER_MOVEMENT_SPEED;
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 			playerX += PLAYER_MOVEMENT_SPEED;
+		/*
+		if (physics->isCollision(playerSprite, platformSprite))
+		{
+			PLAYER_MOVEMENT_SPEED = 0;
+		}
+		*/
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -127,9 +129,9 @@ void SoftFox::run()
 					
 		//Drawing player sprite (texture class)
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
-		
+
 		//Drawing hunter sprite (Thomas)
-		HunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
+		hunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
 					
 		SDL_RenderPresent(renderer);				
 	}
