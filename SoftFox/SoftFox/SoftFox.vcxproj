@@ -157,10 +157,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="Hunter.h" />
+=======
+    <ClInclude Include="Coordinates.h" />
+>>>>>>> refs/remotes/origin/master
     <ClInclude Include="InitialisationError.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SoftFox.h" />
+    <ClInclude Include="SoftFox_Main.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
@@ -168,7 +174,9 @@
   <ItemGroup>
     <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="InitialisationError.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="SoftFox.cpp" />
+    <ClCompile Include="SoftFox_Main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
