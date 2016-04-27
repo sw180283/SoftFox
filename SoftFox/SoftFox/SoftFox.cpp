@@ -108,6 +108,12 @@ void SoftFox::run()
 			playerX -= PLAYER_MOVEMENT_SPEED;
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 			playerX += PLAYER_MOVEMENT_SPEED;
+		/*
+		if (physics->isCollision(playerSprite, platformSprite))
+		{
+			PLAYER_MOVEMENT_SPEED = 0;
+		}
+		*/
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
