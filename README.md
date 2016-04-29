@@ -12,8 +12,8 @@
 [Week 4](#week-4---research-into-similar-games)  
 [The Second Sprint Review](#the-second-sprint-review)  
 [Week 5-7](#week-5-7---notepad-map-design-implementation)  
-[Week 8][#week-8---tiled-level-layout-implemented)
-[Week 9](#week-9---platform-dirt-uses-level)
+[Week 8](#week-8---tiled-level-layout-implemented)  
+[Week 9](#week-9---platform-dirt-uses-level)  
 [The Third Sprint Review](#the-third-sprint-review)
 
 #First Time Downloading Folder
@@ -111,3 +111,7 @@ The main obsticle this week as been our lack of knowledge with Github, as we str
 The project owner commented on our use of Trello, and how to improve the wording of our user stories. We were also given advice on how to include investor focused user stories into our Trello board, such as including market research.
 
 The final scope of the project was questioned and the project manager wanted to focus our attention to the main user stories to complete in the final weeks. This has influenced our next sprint plan and what user stories to work on.
+
+![alt text][End_of_third_sprint] 
+
+[End_of_third_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/Third_Complete_Sprint_Plan.jpg "End Of Third Sprint"
