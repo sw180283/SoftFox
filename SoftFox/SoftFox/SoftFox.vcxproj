@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coordinates.h" />
+    <ClInclude Include="Hunter.h" />
     <ClInclude Include="InitialisationError.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Physics.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="InitialisationError.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Physics.cpp" />

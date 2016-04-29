@@ -9,8 +9,6 @@
 
 SoftFox::SoftFox()
 {
-	//level = new Level(const level_name);
-
 	//Initialise the video to allow for display on the window
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -45,6 +43,8 @@ SoftFox::SoftFox()
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
 	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
+	//Hunter (Thomas)
+	hunterSprite = new Texture("..\\Sprites\\elmer.jpg");
 }
 
 SoftFox::~SoftFox()
@@ -76,8 +76,12 @@ void SoftFox::run()
 	running = true;
 
 	//Set player start position to the tile using level
-	playerX = tileSize * level->getStartX();
-	playerY = tileSize * level->getStartY();
+	playerX = tileSize * level->getStartX() + tileSize / 2;
+	playerY = tileSize * level->getStartY() + tileSize / 2;
+
+	//Set hunter start position to the tile using level
+	HunterX = tileSize * level->getVillianX() + tileSize/2;
+	HunterY = tileSize * level->getVillianY() + tileSize/2;
 
 	while (running)
 	{
@@ -127,6 +131,9 @@ void SoftFox::run()
 					
 		//Drawing player sprite (texture class)
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+
+		//Drawing hunter sprite (Thomas)
+		hunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
 					
 		SDL_RenderPresent(renderer);				
 	}

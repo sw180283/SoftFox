@@ -4,6 +4,7 @@
 #include "Level.h"
 #include "Texture.h"
 #include "Physics.h"
+#include "Hunter.h"
 
 class SoftFox
 {
@@ -12,6 +13,10 @@ public:
 	~SoftFox();
 
 	void run();
+
+	//Hunter (Thomas)
+	int getHunterX() { return HunterX; }
+	int getHunterY() { return HunterY; }
 
 	static const int WINDOW_HEIGHT = 600;
 	static const int WINDOW_WIDTH = 800;
@@ -29,6 +34,7 @@ private:
 	SDL_Renderer* renderer;
 
 	Texture* playerSprite;
+	Texture* hunterSprite;
 	SDL_Texture* platformSprite;
 	SDL_Texture* platformSprite_Dirt;
 	SDL_Texture* backgroundImage;
@@ -42,5 +48,6 @@ private:
 	Physics* physics;
 
 	int playerX, playerY;
+	int HunterX, HunterY;
 	bool running;
 };
