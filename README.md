@@ -12,6 +12,7 @@
 [Week 4](#week-4---research-into-similar-games)  
 [The Second Sprint Review](#the-second-sprint-review)  
 [Week 5-7](#week-5-7---notepad-map-design-implementation)  
+[Week 8][##week-8---tiled-level-layout-implemented)
 
 #First Time Downloading Folder
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
@@ -97,3 +98,14 @@ The main obsticle with this method is that we have struggled to overcome an erro
 #Week 8 - Tiled Level Layout Implemented
 ###Task completed by: Thomas and Sam (Pair programming) 
 Having discussed the error the was interuptting our work with our lecturers, we found that the error was an issue with a circuluar include of headers where SoftFox.h was included in Level.h and vice versa. This has taught our group more about C++/SDL and how to manage and maintain the includes. 
+
+#Week 9 - Platform Dirt Uses Level
+##Task completed by: Thomas and Sam (Pair programming) 
+After implementing our working map layout based on a tixt file, we started to created more level layouts. As the level generation was simple to implement changes, this meant we could create more levels quickly. We also amde the player and hunter spawn into the game using the text file.
+
+The main obsticle this week as been our lack of knowledge with Github, as we struggled to uploaded, merge and maintain branches of code. This slowed production to a stop and took a long time to fix. This also lead to a fear of losing work from attempting to fix the problem. We overcame this obsticle by approaching our lecturers and presenting the problem. They were able to fix this after some attempts and production was able to continue.
+
+#The Third Sprint Review
+The project owner commented on our use of Trello, and how to improve the wording of our user stories. We were also given advice on how to include investor focused user stories into our Trello board, such as including market research.
+
+The final scope of the project was questioned and the project manager wanted to focus our attention to the main user stories to complete in the final weeks. This has influenced our next sprint plan and what user stories to work on.
