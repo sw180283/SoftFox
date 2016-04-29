@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="SoftFox.cpp">
-      <Filter>Source File</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="InitialisationError.cpp">
       <Filter>Source File</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
+      <Filter>Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftFox.cpp">
       <Filter>Source File</Filter>
     </ClCompile>
     <ClCompile Include="SoftFox_Main.cpp">
@@ -16,68 +19,49 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source File</Filter>
     </ClCompile>
-    <ClCompile Include="InitialisationError.cpp">
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Hunter.cpp">
       <Filter>Source File</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coordinates.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SoftFox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SoftFox_Main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header File</Filter>
     </ClInclude>
     <ClInclude Include="InitialisationError.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftFox.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftFox_Main.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header File</Filter>
     </ClInclude>
     <ClInclude Include="Hunter.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SoftFox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InitialisationError.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hunter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="SoftFox.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-=======
->>>>>>> refs/remotes/origin/master
     <Image Include="small.ico">
       <Filter>Resource Files</Filter>
     </Image>
@@ -90,15 +74,15 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source File">
-      <UniqueIdentifier>{b732b26f-09f9-456b-a76d-7bca24817ef6}</UniqueIdentifier>
+      <UniqueIdentifier>{8170e41f-026e-425a-863e-080ce5fe1d67}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{14bec0b8-6193-4d10-a25b-a008bec66de5}</UniqueIdentifier>
+      <UniqueIdentifier>{fb1a4345-aba4-4ce9-947f-27df356bfd6a}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{3989d45e-6afd-476c-a8d7-e17b09239bc6}</UniqueIdentifier>
+    <Filter Include="Header File">
+      <UniqueIdentifier>{b6fac9da-4a3e-462d-b31a-bacd39f83a2b}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
   </ItemGroup>
