@@ -9,8 +9,6 @@
 
 SoftFox::SoftFox()
 {
-	//level = new Level(const level_name);
-
 	//Initialise the video to allow for display on the window
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -78,8 +76,12 @@ void SoftFox::run()
 	running = true;
 
 	//Set player start position to the tile using level
-	playerX = tileSize * level->getStartX();
-	playerY = tileSize * level->getStartY();
+	playerX = tileSize * level->getStartX() + tileSize / 2;
+	playerY = tileSize * level->getStartY() + tileSize / 2;
+
+	//Set hunter start position to the tile using level
+	HunterX = tileSize * level->getVillianX() + tileSize/2;
+	HunterY = tileSize * level->getVillianY() + tileSize/2;
 
 	while (running)
 	{

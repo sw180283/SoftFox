@@ -15,8 +15,8 @@ public:
 	void run();
 
 	//Hunter (Thomas)
-	int HunterX = 400;
-	int HunterY = 400;
+	int getHunterX() { return HunterX; }
+	int getHunterY() { return HunterY; }
 
 	static const int WINDOW_HEIGHT = 600;
 	static const int WINDOW_WIDTH = 800;
@@ -48,5 +48,6 @@ private:
 	Physics* physics;
 
 	int playerX, playerY;
+	int HunterX, HunterY;
 	bool running;
 };
