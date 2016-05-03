@@ -21,7 +21,10 @@ public:
 	static const int WINDOW_HEIGHT = 600;
 	static const int WINDOW_WIDTH = 800;
 	static const int SPRITE_SIZE = 64;
-	int PLAYER_MOVEMENT_SPEED = 4;
+	static const int PLAYER_MOVEMENT_SPEED = 4;
+	static const int gravity = 9.14;
+	static const int upForce = gravity;
+
 
 	const char* level_name = "..\\Level\\Level_One.txt";
 
@@ -44,6 +47,8 @@ private:
 	void drawTile(int x, int y, SDL_Texture* texture);
 	//draws everything declared in level
 	void drawLevel();
+
+	struct textureBox;
 
 	Physics* physics;
 

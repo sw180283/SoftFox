@@ -73,6 +73,7 @@ Level::Level(const std::string& fileName)
 				//y is the height
 				//set levelData to true for later isWall
 				levelData[y * width + x] = true;
+				wallPosition = Coordinates(x, y);
 				break;
 
 				//player start position

@@ -112,12 +112,45 @@ void SoftFox::run()
 			playerX -= PLAYER_MOVEMENT_SPEED;
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 			playerX += PLAYER_MOVEMENT_SPEED;
+		
+
+		SDL_Rect playerBox = { playerX, playerY, tileSize / 2, tileSize };
+
+		playerY += gravity;
+		
 		/*
-		if (physics->isCollision(playerSprite, platformSprite))
+		int platformX = tileSize * level->getWallX() + tileSize / 2;// + tileSize;
+		int platformY = tileSize * level->getWallY() + tileSize / 2;// - tileSize/4;
+		SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
+
+		if (physics->isCollision(playerBox, platformBox))
 		{
-			PLAYER_MOVEMENT_SPEED = 0;
+			playerY -= upForce;
 		}
 		*/
+		
+		for (int y = 0; y < level->getHeight(); y++)
+		{
+			for (int x = 0; x < level->getWidth(); x++)
+			{
+				if (level->isWall(x, y))
+				{
+					int platformX[] = { tileSize * level->getWallX() + tileSize / 2 };
+					int platformY[] = { tileSize * level->getWallY() + tileSize / 2 };
+					for (int a = 0; a < size_t (platformX); a++)
+					{
+						for (int b = 0; b < size_t (platformY); b++)
+						{
+							SDL_Rect* platformBox = { platformX[a], platformY[b], tileSize, tileSize };
+							if (physics->isCollision(playerBox, platformBox))
+							{
+								playerY -= upForce;
+							}
+						}
+					}
+				}
+			}
+		}
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
