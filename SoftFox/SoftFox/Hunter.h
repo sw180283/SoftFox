@@ -10,6 +10,7 @@ public:
 	~Hunter();
 
 private:
-
+	Level* level;
+	void movement();
 };
 
