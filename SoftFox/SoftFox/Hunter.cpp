@@ -16,21 +16,27 @@ Hunter::~Hunter()
 
 }
 
+int hunterX = 100; //temp
+int hunterY = 100; //temp
+
 void Hunter::movement()
 {
-	for (int y = +1; int x = -1; )
+	for (int y = 0; y < level->getHeight(); y++)
 	{
-		if (level->isWall(y + 1, x - 1))
+		for (int x = 0; x < level->getWidth(); x++)
 		{
-			//hunter moves left
+			if (int y = hunterY + 1; int x = hunterX + 1;)
 			{
-				if (level->isWall(y + 1, x - 1) && !y + 1, x - 1)
+				while (level->isWall(hunterY + 1, hunterX - 1))
 				{
-					//hunter moves right
+					hunterX -= 10;
 					{
-						if (level->isWall(y + 1, x + 1))
+						if (level->isWall(hunterY + 1, hunterX - 1)) //add is not
 						{
-							if (level->isWall(y + 1, x + 1) && !y + 1, x + 1)
+							while (level->isWall(hunterY + 1, hunterX + 1))
+							{
+								hunterX += 10;
+							}
 						}
 					}
 				}
@@ -38,3 +44,4 @@ void Hunter::movement()
 		}
 	}
 }
+
