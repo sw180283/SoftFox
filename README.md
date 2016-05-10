@@ -115,3 +115,8 @@ The final scope of the project was questioned and the project manager wanted to 
 ![alt text][End_of_third_sprint] 
 
 [End_of_third_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/Third_Complete_Sprint_Plan.jpg "End Of Third Sprint"
+
+#Week 10 - Working our own elements to the game
+During this week of the task we all had our coding task two elements of the game to work on in order bring them into the game so that we can have a shipable product. I worked on the hunter mechanic for the group project in order to try and get him loading in and functional, while sam worked on her collision detection in order to give objects in game mass and create gravity.Dean also has his coding task two of mushroom collection to allow players in game to collect mushrooms in game.
+
+During this week the main obsticle was we did not communicate much as we our own coursework. During this period we did not skype but we did keep track of what we were doing by messaging. This meant that we didnt work on the core game much but as we were working on our own components the game still made progress.
