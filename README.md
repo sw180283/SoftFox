@@ -15,7 +15,7 @@
 [Week 8](#week-8---tiled-level-layout-implemented)  
 [Week 9](#week-9---platform-dirt-uses-level)  
 [The Third Sprint Review](#the-third-sprint-review)
-[Week 10](#week-10---working-on-our-own-elements-to-the-game)  
+[Week 10](#week-10---working-on-our-own-elements-to-the-game)    
 
 #First Time Downloading Folder
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
