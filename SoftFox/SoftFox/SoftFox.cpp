@@ -143,7 +143,7 @@ void SoftFox::run()
 						for (int b = 0; b < size_t (platformY); b++)
 						{
 							int platformYB = platformY[b] * tileSize;
-							SDL_Rect& platformBox = { platformXA, platformYB, tileSize, tileSize };
+							SDL_Rect platformBox = { platformXA, platformYB, tileSize, tileSize };
 							if (physics->isCollision(playerBox, platformBox))
 							{
 								playerY -= upForce;
