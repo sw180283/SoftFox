@@ -15,6 +15,7 @@
 [Week 8](#week-8---tiled-level-layout-implemented)  
 [Week 9](#week-9---platform-dirt-uses-level)  
 [The Third Sprint Review](#the-third-sprint-review)
+[Week 10](#week-10---working-on-our-own-elements-to-the-game)  
 
 #First Time Downloading Folder
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
@@ -116,7 +117,7 @@ The final scope of the project was questioned and the project manager wanted to 
 
 [End_of_third_sprint]: https://github.com/sw180283/SoftFox/blob/master/Trello/Third_Complete_Sprint_Plan.jpg "End Of Third Sprint"
 
-#Week 10 - Working our own elements to the game
+#Week 10 - Working on our own elements to the game
 During this week of the task we all had our coding task two elements of the game to work on in order bring them into the game so that we can have a shipable product. I worked on the hunter mechanic for the group project in order to try and get him loading in and functional, while sam worked on her collision detection in order to give objects in game mass and create gravity.Dean also has his coding task two of mushroom collection to allow players in game to collect mushrooms in game.
 
 During this week the main obsticle was we did not communicate much as we our own coursework. During this period we did not skype but we did keep track of what we were doing by messaging. This meant that we didnt work on the core game much but as we were working on our own components the game still made progress.
