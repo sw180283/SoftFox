@@ -22,7 +22,7 @@ public:
 	static const int WINDOW_WIDTH = 800;
 	static const int SPRITE_SIZE = 64;
 	static const int PLAYER_MOVEMENT_SPEED = 4;
-	static const int gravity = 9.14;
+	static const int gravity = 9;
 	static const int upForce = gravity;
 
 

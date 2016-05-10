@@ -139,9 +139,10 @@ void SoftFox::run()
 					int platformY[] = { tileSize * level->getWallY() + tileSize / 2 };
 					for (int a = 0; a < size_t (platformX); a++)
 					{
+						int platformX = platformX[a]*tileSize;
 						for (int b = 0; b < size_t (platformY); b++)
 						{
-							SDL_Rect* platformBox = { platformX[a], platformY[b], tileSize, tileSize };
+							SDL_Rect& platformBox = { platformX, platformY[b], tileSize, tileSize };
 							if (physics->isCollision(playerBox, platformBox))
 							{
 								playerY -= upForce;
