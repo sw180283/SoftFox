@@ -14,7 +14,7 @@
 [Week 5-7](#week-5-7---notepad-map-design-implementation)  
 [Week 8](#week-8---tiled-level-layout-implemented)  
 [Week 9](#week-9---platform-dirt-uses-level)  
-[The Third Sprint Review](#the-third-sprint-review)
+[The Third Sprint Review](#the-third-sprint-review)      
 [Week 10](#week-10---working-on-our-own-elements-to-the-game)    
 
 #First Time Downloading Folder
