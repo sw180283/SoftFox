@@ -23,6 +23,11 @@ public:
 	int getVillianX() const { return villianPosition.getX(); }
 	int getVillianY() const { return villianPosition.getY(); }
 
+	//mushroomPosistion of mushroom
+	const Coordinates& getMushroomPosition() const { return mushroomPosition; }
+	int getMushroomX() const { return mushroomPosition.getX(); }
+	int getMushroomY() const { return mushroomPosition.getY(); }
+
 	//for later wall collisions
 	bool isWall(int x, int y) const;
 
@@ -33,5 +38,6 @@ private:
 	bool* levelData;
 	Coordinates startPosition;
 	Coordinates villianPosition;
-	//Coordinates mushroomPositionArray;
+	Coordinates mushroomPosition;
+	
 };

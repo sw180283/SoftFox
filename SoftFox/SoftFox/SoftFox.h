@@ -35,9 +35,11 @@ private:
 
 	Texture* playerSprite;
 	Texture* hunterSprite;
+	Texture* mushroomSprite;
 	SDL_Texture* platformSprite;
 	SDL_Texture* platformSprite_Dirt;
 	SDL_Texture* backgroundImage;
+	
 
 	Level* level;
 	//individually draws tiles
@@ -49,5 +51,6 @@ private:
 
 	int playerX, playerY;
 	int HunterX, HunterY;
+	int MushroomX, MushroomY;
 	bool running;
 };
