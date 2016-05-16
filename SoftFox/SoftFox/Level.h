@@ -39,5 +39,4 @@ private:
 	Coordinates startPosition;
 	Coordinates villianPosition;
 	Coordinates mushroomPosition;
-	
 };

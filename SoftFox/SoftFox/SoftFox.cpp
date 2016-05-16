@@ -118,12 +118,37 @@ void SoftFox::run()
 			playerX -= PLAYER_MOVEMENT_SPEED;
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 			playerX += PLAYER_MOVEMENT_SPEED;
+		
 		/*
-		if (physics->isCollision(playerSprite, platformSprite))
+		int platformX = tileSize * level->getWallX() + tileSize / 2;// + tileSize;
+		int platformY = tileSize * level->getWallY() + tileSize / 2;// - tileSize/4;
+		SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
+
+		if (physics->isCollision(playerBox, platformBox))
 		{
-			PLAYER_MOVEMENT_SPEED = 0;
+			playerY -= upForce;
 		}
 		*/
+
+		/*SDL_Rect playerBox = { playerX, playerY, tileSize, tileSize };
+		//playerY += gravity;
+
+		for (int y = 0; y < level->getHeight(); y++)
+		{
+			for (int x = 0; x < level->getWidth(); x++)
+			{
+				if (level->isWall(x, y))
+				{
+					int platformX = tileSize * x;// + tileSize;
+					int platformY = tileSize * y;// - tileSize/4;
+					SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
+					if (physics->isCollision(platformBox, playerBox))
+					{
+						playerY -= upForce;
+					}
+				}
+			}
+		}*/
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -144,6 +169,8 @@ void SoftFox::run()
 		//Drawing mushroom sprite
 		mushroomSprite->render(renderer, MushroomX, MushroomY, SPRITE_SIZE, SPRITE_SIZE);
 
+		getCollision();
+					
 		SDL_RenderPresent(renderer);				
 	}
 }
@@ -173,6 +200,30 @@ void SoftFox::drawLevel()
 				else
 				{
 					drawTile(x, y, platformSprite);
+				}
+			}
+		}
+	}
+}
+
+void SoftFox::getCollision()
+{
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE /2, SPRITE_SIZE, SPRITE_SIZE };
+	playerY += gravity;
+
+	for (int y = 0; y < level->getHeight(); y++)
+	{
+		for (int x = 0; x < level->getWidth(); x++)
+		{
+			if (level->isWall(x, y))
+			{
+				int platformX = tileSize * x;// + tileSize;
+				int platformY = tileSize * y;// - tileSize/4;
+				SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
+				if (physics->isCollision(platformBox, playerBox))
+				{
+					playerY -= upForce;
+					return;
 				}
 			}
 		}

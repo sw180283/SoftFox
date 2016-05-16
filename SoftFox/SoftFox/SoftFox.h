@@ -21,7 +21,10 @@ public:
 	static const int WINDOW_HEIGHT = 600;
 	static const int WINDOW_WIDTH = 800;
 	static const int SPRITE_SIZE = 64;
-	int PLAYER_MOVEMENT_SPEED = 4;
+	static const int PLAYER_MOVEMENT_SPEED = 4;
+	static const int gravity = 9;
+	static const int upForce = gravity;
+
 
 	const char* level_name = "..\\Level\\Level_One.txt";
 
@@ -47,9 +50,12 @@ private:
 	//draws everything declared in level
 	void drawLevel();
 
+	void getCollision();
+
 	Physics* physics;
 
 	int playerX, playerY;
+	int platformX, platformY;
 	int HunterX, HunterY;
 	int MushroomX, MushroomY;
 	bool running;
