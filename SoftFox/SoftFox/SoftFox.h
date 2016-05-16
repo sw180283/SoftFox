@@ -59,4 +59,5 @@ private:
 	int HunterX, HunterY;
 	int MushroomX, MushroomY;
 	bool running;
+	bool jump;
 };

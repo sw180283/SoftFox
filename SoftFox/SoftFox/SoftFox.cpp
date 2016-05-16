@@ -77,6 +77,8 @@ void SoftFox::run()
 	//Set a boolean to keep the window running until false
 	running = true;
 
+	jump - false;
+
 	//Set player start position to the tile using level
 	playerX = tileSize * level->getStartX() + tileSize / 2;
 	playerY = tileSize * level->getStartY() + tileSize / 2;
@@ -110,45 +112,22 @@ void SoftFox::run()
 
 		// Check keyboard state
 		const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-		if (keyboardState[SDL_SCANCODE_UP])
-			playerY -= PLAYER_MOVEMENT_SPEED;
-		if (keyboardState[SDL_SCANCODE_DOWN])
-			playerY += PLAYER_MOVEMENT_SPEED;
+		//if (keyboardState[SDL_SCANCODE_DOWN])
+		//playerY += PLAYER_MOVEMENT_SPEED;
 		if (keyboardState[SDL_SCANCODE_LEFT])
 			playerX -= PLAYER_MOVEMENT_SPEED;
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 			playerX += PLAYER_MOVEMENT_SPEED;
-		
-		/*
-		int platformX = tileSize * level->getWallX() + tileSize / 2;// + tileSize;
-		int platformY = tileSize * level->getWallY() + tileSize / 2;// - tileSize/4;
-		SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
 
-		if (physics->isCollision(playerBox, platformBox))
+		if (!jump)
 		{
-			playerY -= upForce;
-		}
-		*/
-
-		/*SDL_Rect playerBox = { playerX, playerY, tileSize, tileSize };
-		//playerY += gravity;
-
-		for (int y = 0; y < level->getHeight(); y++)
-		{
-			for (int x = 0; x < level->getWidth(); x++)
+			if (keyboardState[SDL_SCANCODE_UP])
 			{
-				if (level->isWall(x, y))
-				{
-					int platformX = tileSize * x;// + tileSize;
-					int platformY = tileSize * y;// - tileSize/4;
-					SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
-					if (physics->isCollision(platformBox, playerBox))
-					{
-						playerY -= upForce;
-					}
-				}
+				playerY -= 20;
+				jump = true;
 			}
-		}*/
+		}
+
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -223,6 +202,7 @@ void SoftFox::getCollision()
 				if (physics->isCollision(platformBox, playerBox))
 				{
 					playerY -= upForce;
+					jump = false;
 					return;
 				}
 			}
