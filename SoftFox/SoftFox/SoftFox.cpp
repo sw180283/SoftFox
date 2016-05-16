@@ -113,11 +113,6 @@ void SoftFox::run()
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 			playerX += PLAYER_MOVEMENT_SPEED;
 		
-
-		SDL_Rect playerBox = { playerX, playerY, tileSize, tileSize };
-
-		playerY += gravity;
-		
 		/*
 		int platformX = tileSize * level->getWallX() + tileSize / 2;// + tileSize;
 		int platformY = tileSize * level->getWallY() + tileSize / 2;// - tileSize/4;
@@ -129,14 +124,17 @@ void SoftFox::run()
 		}
 		*/
 
+		/*SDL_Rect playerBox = { playerX, playerY, tileSize, tileSize };
+		//playerY += gravity;
+
 		for (int y = 0; y < level->getHeight(); y++)
 		{
 			for (int x = 0; x < level->getWidth(); x++)
 			{
 				if (level->isWall(x, y))
 				{
-					platformX = tileSize * x;// + tileSize;
-					platformY = tileSize * y;// - tileSize/4;
+					int platformX = tileSize * x;// + tileSize;
+					int platformY = tileSize * y;// - tileSize/4;
 					SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
 					if (physics->isCollision(platformBox, playerBox))
 					{
@@ -144,7 +142,7 @@ void SoftFox::run()
 					}
 				}
 			}
-		}
+		}*/
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -160,7 +158,9 @@ void SoftFox::run()
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 
 		//Drawing hunter sprite (Thomas)
-		hunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
+		hunterSprite->render(renderer, HunterX, HunterY, tileSize, tileSize);
+
+		getCollision();
 					
 		SDL_RenderPresent(renderer);				
 	}
@@ -191,6 +191,30 @@ void SoftFox::drawLevel()
 				else
 				{
 					drawTile(x, y, platformSprite);
+				}
+			}
+		}
+	}
+}
+
+void SoftFox::getCollision()
+{
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE /2, SPRITE_SIZE, SPRITE_SIZE };
+	playerY += gravity;
+
+	for (int y = 0; y < level->getHeight(); y++)
+	{
+		for (int x = 0; x < level->getWidth(); x++)
+		{
+			if (level->isWall(x, y))
+			{
+				int platformX = tileSize * x;// + tileSize;
+				int platformY = tileSize * y;// - tileSize/4;
+				SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
+				if (physics->isCollision(platformBox, playerBox))
+				{
+					playerY -= upForce;
+					return;
 				}
 			}
 		}

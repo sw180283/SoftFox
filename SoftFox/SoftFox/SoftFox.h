@@ -48,7 +48,7 @@ private:
 	//draws everything declared in level
 	void drawLevel();
 
-	struct textureBox;
+	void getCollision();
 
 	Physics* physics;
 

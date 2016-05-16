@@ -28,6 +28,8 @@ bool Physics::isCollision(SDL_Rect& objectOne, SDL_Rect& objectTwo)
 	{
 		return true;
 	}
+
+	//if (objectOneLeft < objectTwoRight && objectOneRight > objectTwoLeft)
 	
 	/*
 	//if (objectOne.x < objectTwo.x + objectTwo.w && objectOne.x + objectOne.w > objectTwo.x && objectOne.y < objectTwo.y + objectTwo.h && objectOne.y + objectOne.h > objectTwo.y)
