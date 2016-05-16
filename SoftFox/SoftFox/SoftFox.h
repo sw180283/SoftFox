@@ -53,6 +53,7 @@ private:
 	Physics* physics;
 
 	int playerX, playerY;
+	int platformX, platformY;
 	int HunterX, HunterY;
 	bool running;
 };

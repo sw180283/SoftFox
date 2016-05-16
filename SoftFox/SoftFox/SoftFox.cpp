@@ -114,7 +114,7 @@ void SoftFox::run()
 			playerX += PLAYER_MOVEMENT_SPEED;
 		
 
-		SDL_Rect playerBox = { playerX, playerY, tileSize / 2, tileSize };
+		SDL_Rect playerBox = { playerX, playerY, tileSize, tileSize };
 
 		playerY += gravity;
 		
@@ -128,27 +128,19 @@ void SoftFox::run()
 			playerY -= upForce;
 		}
 		*/
-		
+
 		for (int y = 0; y < level->getHeight(); y++)
 		{
 			for (int x = 0; x < level->getWidth(); x++)
 			{
 				if (level->isWall(x, y))
 				{
-					int platformX[] = { tileSize * level->getWallX() + tileSize / 2 };
-					int platformY[] = { tileSize * level->getWallY() + tileSize / 2 };
-					for (int a = 0; a < size_t (platformX); a++)
+					platformX = tileSize * x;// + tileSize;
+					platformY = tileSize * y;// - tileSize/4;
+					SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
+					if (physics->isCollision(platformBox, playerBox))
 					{
-						int platformXA = platformX[a]*tileSize;
-						for (int b = 0; b < size_t (platformY); b++)
-						{
-							int platformYB = platformY[b] * tileSize;
-							SDL_Rect platformBox = { platformXA, platformYB, tileSize, tileSize };
-							if (physics->isCollision(playerBox, platformBox))
-							{
-								playerY -= upForce;
-							}
-						}
+						playerY -= upForce;
 					}
 				}
 			}
