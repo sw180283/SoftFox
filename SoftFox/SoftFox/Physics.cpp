@@ -25,10 +25,14 @@ bool Physics::isCollision(SDL_Rect& objectOne, SDL_Rect& objectTwo)
 	
 	//if (objectOne.x < objectTwo.x + objectTwo.w && objectOne.x + objectOne.w > objectTwo.x && objectOne.y < objectTwo.y + objectTwo.h && objectOne.y + objectOne.h > objectTwo.y)
 	if (objectOneLeft < objectTwoRight && objectOneRight > objectTwoLeft && objectOneTop < objectTwoBottom && objectOneBottom > objectTwoTop)
+	//if (objectOneTop == objectTwoBottom || objectOneBottom == objectTwoTop)
+
+	//if (objectTwoRight == objectOneLeft || objectOneRight == objectTwoLeft && objectOneBottom < objectTwoBottom || objectOneBottom  > objectTwoTop)
 	{
 		return true;
 	}
 
+	
 	//if (objectOneLeft < objectTwoRight && objectOneRight > objectTwoLeft)
 	
 	/*

@@ -54,10 +54,14 @@ private:
 
 	Physics* physics;
 
+	Uint32 start = 0;
+
 	int playerX, playerY;
 	int platformX, platformY;
 	int HunterX, HunterY;
 	int MushroomX, MushroomY;
 	bool running;
 	bool jump;
+	bool hasJumped;
+	bool playerCollision;
 };

@@ -77,7 +77,10 @@ void SoftFox::run()
 	//Set a boolean to keep the window running until false
 	running = true;
 
-	jump - false;
+	jump = false;
+	hasJumped = false;
+
+	playerCollision = false;
 
 	//Set player start position to the tile using level
 	playerX = tileSize * level->getStartX() + tileSize / 2;
@@ -112,19 +115,58 @@ void SoftFox::run()
 
 		// Check keyboard state
 		const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-		//if (keyboardState[SDL_SCANCODE_DOWN])
-		//playerY += PLAYER_MOVEMENT_SPEED;
-		if (keyboardState[SDL_SCANCODE_LEFT])
-			playerX -= PLAYER_MOVEMENT_SPEED;
-		if (keyboardState[SDL_SCANCODE_RIGHT])
-			playerX += PLAYER_MOVEMENT_SPEED;
 
+		if (keyboardState[SDL_SCANCODE_LEFT])
+		{
+			if (playerCollision)
+			{
+				playerX += 1;
+			}
+			else
+			{
+				playerX -= PLAYER_MOVEMENT_SPEED;
+			}
+
+		}
+
+		if (keyboardState[SDL_SCANCODE_RIGHT])
+		{
+			if (playerCollision)
+			{
+				playerX += 1;
+			}
+			else
+			{
+				playerX += PLAYER_MOVEMENT_SPEED;
+			}
+		}
+
+
+		//The timer starting time
 		if (!jump)
 		{
 			if (keyboardState[SDL_SCANCODE_UP])
 			{
 				playerY -= 20;
+				start = SDL_GetTicks();
 				jump = true;
+			}
+		}
+		else if (jump && !hasJumped)
+		{
+			if (keyboardState[SDL_SCANCODE_UP])
+			{
+				playerY -= 20;
+				Uint32 jumpTime = SDL_GetTicks() - start;
+				if (jumpTime > 100)
+				{
+					jump = false;
+					hasJumped = true;
+				}
+			}
+			else
+			{
+				hasJumped = true;
 			}
 		}
 
@@ -187,7 +229,7 @@ void SoftFox::drawLevel()
 
 void SoftFox::getCollision()
 {
-	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE /2, SPRITE_SIZE, SPRITE_SIZE };
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE /2, SPRITE_SIZE/2, SPRITE_SIZE };
 	playerY += gravity;
 
 	for (int y = 0; y < level->getHeight(); y++)
@@ -203,6 +245,8 @@ void SoftFox::getCollision()
 				{
 					playerY -= upForce;
 					jump = false;
+					hasJumped = false;
+					playerCollision = true;
 					return;
 				}
 			}
