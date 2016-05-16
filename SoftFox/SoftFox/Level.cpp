@@ -91,7 +91,10 @@ Level::Level(const std::string& fileName)
 				break;
 
 				//TO DO mushrooms
-
+			case'M':
+				levelData[y * width + x] = false;
+				mushroomPosition = Coordinates(x, y);
+				break;
 
 			default:
 				levelData[y * width + x] = false;

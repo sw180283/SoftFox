@@ -42,7 +42,9 @@ SoftFox::SoftFox()
 	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
+	mushroomSprite = new Texture("..\\Sprites\\mushroom.png");
 	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
+
 	//Hunter (Thomas)
 	hunterSprite = new Texture("..\\Sprites\\elmer.jpg");
 }
@@ -82,6 +84,10 @@ void SoftFox::run()
 	//Set hunter start position to the tile using level
 	HunterX = tileSize * level->getVillianX() + tileSize/2;
 	HunterY = tileSize * level->getVillianY() + tileSize/2;
+
+	//Set mushroom start posistion to the tile using level
+	MushroomX = tileSize * level->getMushroomX() + tileSize / 2;
+	MushroomY = tileSize * level->getMushroomY() + tileSize / 2;
 
 	while (running)
 	{
@@ -134,7 +140,10 @@ void SoftFox::run()
 
 		//Drawing hunter sprite (Thomas)
 		hunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
-					
+		
+		//Drawing mushroom sprite
+		mushroomSprite->render(renderer, MushroomX, MushroomY, SPRITE_SIZE, SPRITE_SIZE);
+
 		SDL_RenderPresent(renderer);				
 	}
 }
