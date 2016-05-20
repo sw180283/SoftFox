@@ -1,6 +1,6 @@
 M  PPPPP
-P     VP
+P      P
 PP    PP
    P   P
-S    P P
+SV   P P
 PP PP  P

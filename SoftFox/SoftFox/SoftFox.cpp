@@ -191,6 +191,10 @@ void SoftFox::run()
 		mushroomSprite->render(renderer, MushroomX, MushroomY, SPRITE_SIZE, SPRITE_SIZE);
 
 		getCollision();
+
+		//thomas
+		movement();
+		hasFoxTouchedHunter();
 					
 		SDL_RenderPresent(renderer);				
 	}
@@ -253,3 +257,40 @@ void SoftFox::getCollision()
 		}
 	}
 }
+
+//Thomas Easterbrook Coding Task two start
+void SoftFox::movement()
+{
+	if (level->isWall(HunterX / tileSize - 1, HunterY / tileSize + 1) &&
+		(!level->isWall(HunterX / tileSize - 1, HunterY / tileSize))) //while the bottom left block is wall and no wall next to hunter
+	{
+		HunterX -= 5; //move left
+	}
+	else
+	{
+		if (level->isWall(HunterX / tileSize + 1, HunterY / tileSize + 1) &&
+			(!level->isWall(HunterX / tileSize + 1, HunterY / tileSize))) // while the bottom right block is wall and no wall next to hunter
+		{
+			HunterX += 5; //move right
+		}
+	}
+}
+
+bool playerTouchesFox();
+
+void SoftFox::hasFoxTouchedHunter()
+{
+	SDL_Rect HunterBox = { HunterX - SPRITE_SIZE / 2, HunterY - SPRITE_SIZE / 2 };
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE, SPRITE_SIZE };
+	if (physics->isCollision(HunterBox, playerBox))
+	{
+		playerX = tileSize * level->getStartX() + tileSize / 2;
+		playerY = tileSize * level->getStartY() + tileSize / 2;
+	}
+}
+//Thomas Easterbrook Coding Task two end
+
+
+//check for wall next to hunter
+//store direction he is moving if moving right but space is missing 
+//new field to store direction 

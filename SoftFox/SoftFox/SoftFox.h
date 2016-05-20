@@ -50,6 +50,10 @@ private:
 	//draws everything declared in level
 	void drawLevel();
 
+	//thomas
+	void movement();
+	void hasFoxTouchedHunter();
+
 	void getCollision();
 
 	Physics* physics;
