@@ -118,6 +118,8 @@ void SoftFox::run()
 
 		if (keyboardState[SDL_SCANCODE_LEFT])
 		{
+			playerX -= PLAYER_MOVEMENT_SPEED;
+			/*
 			if (playerCollision)
 			{
 				playerX += 1;
@@ -125,12 +127,14 @@ void SoftFox::run()
 			else
 			{
 				playerX -= PLAYER_MOVEMENT_SPEED;
-			}
+			}*/
 
 		}
 
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 		{
+			playerX += PLAYER_MOVEMENT_SPEED;
+			/*
 			if (playerCollision)
 			{
 				playerX += 1;
@@ -139,6 +143,7 @@ void SoftFox::run()
 			{
 				playerX += PLAYER_MOVEMENT_SPEED;
 			}
+			*/
 		}
 
 
