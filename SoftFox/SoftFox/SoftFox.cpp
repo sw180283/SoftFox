@@ -16,9 +16,9 @@ SoftFox::SoftFox()
 		throw InitialisationError("SDL_Init failed");
 	}
 
-	level = new Level(level_name);
+	level = new Level(level_name); //gets level from txt doc
 
-	tileSize = WINDOW_HEIGHT / level->getHeight();
+	tileSize = WINDOW_HEIGHT / level->getHeight(); //getting tile height txt doc
 
 	//Create the window of the program with (title, x, y, width, height, flag)
 	SDL_Window* window = SDL_CreateWindow("Project Demo", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
@@ -43,10 +43,9 @@ SoftFox::SoftFox()
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
 	mushroomSprite = new Texture("..\\Sprites\\mushroom.png");
-	playerSprite = new Texture("..\\Sprites\\red_fox_sprite_1.gif");
-
+	playerSprite = new Texture("..\\Sprites\\foxx.png");
 	//Hunter (Thomas)
-	hunterSprite = new Texture("..\\Sprites\\elmer.jpg");
+	hunterSprite = new Texture("..\\Sprites\\hunter.png");
 }
 
 SoftFox::~SoftFox()
@@ -185,7 +184,7 @@ void SoftFox::run()
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
 
 		//Drawing hunter sprite (Thomas)
-		hunterSprite->render(renderer, HunterX, HunterY, SPRITE_SIZE, SPRITE_SIZE);
+		hunterSprite->render(renderer, HunterX, HunterY, tileSize, tileSize);
 		
 		//Drawing mushroom sprite
 		mushroomSprite->render(renderer, MushroomX, MushroomY, SPRITE_SIZE, SPRITE_SIZE);
@@ -200,7 +199,8 @@ void SoftFox::run()
 	}
 }
 
-void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
+/// This method draws tiles using passed in x and y coordinates from drawLevel
+void SoftFox::drawTile(int x, int y, SDL_Texture* texture) 
 {
 	SDL_Rect dest;
 	dest.x = x* tileSize;
@@ -210,21 +210,22 @@ void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
 	SDL_RenderCopy(renderer, texture, nullptr, &dest);
 }
 
+///draws level to screen using drawtile and level.txt doc
 void SoftFox::drawLevel()
 {
-	for (int y = 0; y < level->getHeight(); y++)
+	for (int y = 0; y < level->getHeight(); y++) //goes through coloumns
 	{
-		for (int x = 0; x < level->getWidth(); x++)
+		for (int x = 0; x < level->getWidth(); x++)//goes through rows
 		{
-			if (level->isWall(x, y))
+			if (level->isWall(x, y)) //checks for wall
 			{
-				if (level->isWall(x,y-1) && y!=0)
+				if (level->isWall(x,y-1) && y!=0)//if wall is above current
 				{
-					drawTile(x, y, platformSprite_Dirt);
+					drawTile(x, y, platformSprite_Dirt); //no grass sprite
 				}
 				else
 				{
-					drawTile(x, y, platformSprite);
+					drawTile(x, y, platformSprite);// else grass
 				}
 			}
 		}
