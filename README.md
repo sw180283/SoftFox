@@ -16,6 +16,8 @@
 [Week 9](#week-9---platform-dirt-uses-level)  
 [The Third Sprint Review](#the-third-sprint-review)      
 [Week 10](#week-10---working-on-our-own-elements-to-the-game)    
+[Week 11](#week-11---worked-on-our-teamwork-review-essays)  
+[Week 12](#week-12---final-week-of-project)  
 
 #First Time Downloading Folder
 The first time you download this to your computer, there is no Debug folder. So when you first start go to SoftFox-SoftFox-SoftFox.sln, then make sure the Solutions Configuration is set to Debug Solution Platforms is set to x84 and run Local Windows Debugger. After you cancel the error. Go to the project folder SDL2-2.0.4-lib-x84 and copy the SDL2.dll file and paste it into Debug folder found in the same location as the SDL2-2.0.4 folder. Then go to SDL2_image-2.0.1-lib-x84 and copy all 6 .dll files and paste them in the same Debug folder. Now, the prject should run fine.
@@ -121,3 +123,13 @@ The final scope of the project was questioned and the project manager wanted to 
 During this week of the task we all had our coding task two elements of the game to work on in order bring them into the game so that we can have a shipable product. I worked on the hunter mechanic for the group project in order to try and get him loading in and functional, while sam worked on her collision detection in order to give objects in game mass and create gravity.Dean also has his coding task two of mushroom collection to allow players in game to collect mushrooms in game currently under progress the mushrooms now rener on screen in a specific location.
 
 During this week the main obsticle was we did not communicate much as we our own coursework. During this period we did not skype but we did keep track of what we were doing by messaging. This meant that we didnt work on the core game much but as we were working on our own components the game still made progress.
+
+#Week 11 - Worked on our teamwork review essays
+During our project, we have been working to improve our teamwork weakness. This weak, we wrote an essay on how these weaknesses affected our teamwork and how they could be improved.
+
+This also lead to our group discussions with our lecturer to discuss our workflow and how our group worked well and could have improved.
+
+#Week 12 - Final week of project
+This week we worked on our final additions to our group project. We commented all of our code and wanted to make the game as functional as possible for demonstration.
+
+With our individual components added to the game, we can now start testing our game for any bugs for the final review.
