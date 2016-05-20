@@ -50,10 +50,10 @@ private:
 	//draws everything declared in level
 	void drawLevel();
 
-	//thomas
+	//Thomas Easterbrook Coding Task two start
 	void movement();
 	void hasFoxTouchedHunter();
-
+	//Thomas Easterbrook Coding Task two end
 	void getCollision();
 
 	Physics* physics;
@@ -63,6 +63,9 @@ private:
 	int playerX, playerY;
 	int platformX, platformY;
 	int HunterX, HunterY;
+	//Thomas Easterbrook Coding Task two start
+	int HunterDirection = -1;
+	//Thomas Easterbrook Coding Task two end
 	int MushroomX, MushroomY;
 	bool running;
 	bool jump;

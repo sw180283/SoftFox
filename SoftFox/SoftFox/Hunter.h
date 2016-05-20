@@ -3,7 +3,7 @@
 #include "Level.h"
 
 
-
+//Thomas Easterbrook Coding Task two start
 class Hunter
 
 {
@@ -17,5 +17,6 @@ public:
 
 private:
 	Level *level;
+	//Thomas Easterbrook Coding Task two end
 };
 
