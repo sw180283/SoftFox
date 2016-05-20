@@ -2,5 +2,5 @@ M  PPPPP
 P      P
 PP    PP
    P   P
-SV   P P
-PP PP  P
+S   VP P
+PPPPP  P
