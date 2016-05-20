@@ -54,7 +54,7 @@ private:
 	void movement();
 	void hasFoxTouchedHunter();
 	//Thomas Easterbrook Coding Task two end
-	void getCollision();
+	void hasFoxTouchedPlatform();
 
 	Physics* physics;
 
