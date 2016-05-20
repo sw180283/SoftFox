@@ -41,7 +41,7 @@ SoftFox::SoftFox()
 	//Load sprites locations in
 	platformSprite = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite.png");
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
-	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.jpg");
+	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.png");
 	mushroomSprite = new Texture("..\\Sprites\\mushroom.png");
 	playerSprite = new Texture("..\\Sprites\\foxx.png");
 	//Hunter (Thomas)
@@ -118,51 +118,31 @@ void SoftFox::run()
 		if (keyboardState[SDL_SCANCODE_LEFT])
 		{
 			playerX -= PLAYER_MOVEMENT_SPEED;
-			/*
-			if (playerCollision)
-			{
-				playerX += 1;
-			}
-			else
-			{
-				playerX -= PLAYER_MOVEMENT_SPEED;
-			}*/
-
 		}
 
 		if (keyboardState[SDL_SCANCODE_RIGHT])
 		{
 			playerX += PLAYER_MOVEMENT_SPEED;
-			/*
-			if (playerCollision)
-			{
-				playerX += 1;
-			}
-			else
-			{
-				playerX += PLAYER_MOVEMENT_SPEED;
-			}
-			*/
 		}
 
-
+		//Sam Wills coding task two start
 		//The timer starting time
 		if (!jump)
 		{
 			if (keyboardState[SDL_SCANCODE_UP])
 			{
-				playerY -= 20;
-				start = SDL_GetTicks();
+				playerY -= 20; //make sprite move up
+				start = SDL_GetTicks(); //set time to ticks
 				jump = true;
 			}
 		}
-		else if (jump && !hasJumped)
+		else if (jump && !hasJumped) //check if up is still being pressed
 		{
 			if (keyboardState[SDL_SCANCODE_UP])
 			{
-				playerY -= 20;
-				Uint32 jumpTime = SDL_GetTicks() - start;
-				if (jumpTime > 100)
+				playerY -= 20; //make sprite move up
+				Uint32 jumpTime = SDL_GetTicks() - start; //set jumpTime to the time length of the jump
+				if (jumpTime > 100) //if jumpTime exceeds 100
 				{
 					jump = false;
 					hasJumped = true;
@@ -173,6 +153,7 @@ void SoftFox::run()
 				hasJumped = true;
 			}
 		}
+		//Sam Wills coding task two end
 
 
 		//Change the colour of the background renderer and then clear the colour
@@ -186,7 +167,7 @@ void SoftFox::run()
 		drawLevel();
 					
 		//Drawing player sprite (texture class)
-		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE);
+		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE-10);
 
 		//Drawing hunter sprite (Thomas)
 		hunterSprite->render(renderer, HunterX, HunterY, tileSize, tileSize);
@@ -194,7 +175,9 @@ void SoftFox::run()
 		//Drawing mushroom sprite
 		mushroomSprite->render(renderer, MushroomX, MushroomY, SPRITE_SIZE, SPRITE_SIZE);
 
-		getCollision();
+		////Sam Wills coding task two start
+		hasFoxTouchedPlatform();
+		//Sam Wills coding task two end
 
 		//thomas
 		movement();
@@ -237,32 +220,35 @@ void SoftFox::drawLevel()
 	}
 }
 
-void SoftFox::getCollision()
+//Sam Wills coding task two start
+///Get the collision for the player with the platform
+void SoftFox::hasFoxTouchedPlatform()
 {
-	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE /2, SPRITE_SIZE/2, SPRITE_SIZE };
-	playerY += gravity;
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE/2-10, SPRITE_SIZE/2, SPRITE_SIZE }; //create box for player
+	playerY += gravity; //set gravity for player
 
-	for (int y = 0; y < level->getHeight(); y++)
+	for (int y = 0; y < level->getHeight(); y++) //goes through height of level txt doc for coordinate
 	{
-		for (int x = 0; x < level->getWidth(); x++)
+		for (int x = 0; x < level->getWidth(); x++) //goes through width of level txt doc for coordinate
 		{
-			if (level->isWall(x, y))
+			if (level->isWall(x, y)) //if coordinates are wall
 			{
-				int platformX = tileSize * x;// + tileSize;
-				int platformY = tileSize * y;// - tileSize/4;
-				SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize };
-				if (physics->isCollision(platformBox, playerBox))
+				int platformX = tileSize * x; //translate coordinates to screen
+				int platformY = tileSize * y; //translate coordinates to screen
+				SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize }; //create box for platform
+				if (physics->isCollision(platformBox, playerBox)) //if the platform and player collide
 				{
-					playerY -= upForce;
-					jump = false;
-					hasJumped = false;
-					playerCollision = true;
+					playerY -= upForce; //show force for collision
+					jump = false; //for bool jump mechanic
+					hasJumped = false; //for bool jump mechanic
+					playerCollision = true; //for other player detection
 					return;
 				}
 			}
 		}
 	}
 }
+//Sam Wills coding task two end
 
 //Thomas Easterbrook Coding Task two start
 void SoftFox::movement()

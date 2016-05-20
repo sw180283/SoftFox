@@ -54,7 +54,7 @@ private:
 	void movement();
 	void hasFoxTouchedHunter();
 
-	void getCollision();
+	void hasFoxTouchedPlatform();
 
 	Physics* physics;
 
