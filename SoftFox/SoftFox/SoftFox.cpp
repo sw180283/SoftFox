@@ -43,7 +43,9 @@ SoftFox::SoftFox()
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.png");
 	mushroomSprite = new Texture("..\\Sprites\\mushroom.png");
-	playerSprite = new Texture("..\\Sprites\\foxx.png");
+	playerSpriteRight = new Texture("..\\Sprites\\foxRight.png");
+	playerSpriteLeft = new Texture("..\\Sprites\\foxLeft.png");
+	playerSprite = playerSpriteRight;
 	//Hunter (Thomas)
 	hunterSprite = new Texture("..\\Sprites\\hunter.png");
 }
@@ -113,49 +115,6 @@ void SoftFox::run()
 			}
 		}
 
-		// Check keyboard state
-		const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
-
-		if (keyboardState[SDL_SCANCODE_LEFT])
-		{
-			playerX -= PLAYER_MOVEMENT_SPEED;
-		}
-
-		if (keyboardState[SDL_SCANCODE_RIGHT])
-		{
-			playerX += PLAYER_MOVEMENT_SPEED;
-		}
-
-		//Sam Wills coding task two start
-		//The timer starting time
-		if (!jump)
-		{
-			if (keyboardState[SDL_SCANCODE_UP])
-			{
-				playerY -= 20; //make sprite move up
-				start = SDL_GetTicks(); //set time to ticks
-				jump = true;
-			}
-		}
-		else if (jump && !hasJumped) //check if up is still being pressed
-		{
-			if (keyboardState[SDL_SCANCODE_UP])
-			{
-				playerY -= 20; //make sprite move up
-				Uint32 jumpTime = SDL_GetTicks() - start; //set jumpTime to the time length of the jump
-				if (jumpTime > 100) //if jumpTime exceeds 100
-				{
-					jump = false;
-					hasJumped = true;
-				}
-			}
-			else
-			{
-				hasJumped = true;
-			}
-		}
-		//Sam Wills coding task two end
-
 
 		//Change the colour of the background renderer and then clear the colour
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -166,16 +125,32 @@ void SoftFox::run()
 
 		//Draw the level using the method drawTile shown below
 		drawLevel();
+
+		if (keyboardState[SDL_SCANCODE_LEFT])
+		{
+			playerSprite = playerSpriteLeft;
+			playerX -= PLAYER_MOVEMENT_SPEED;
+		}
+
+		if (keyboardState[SDL_SCANCODE_RIGHT])
+		{
+			playerSprite = playerSpriteRight;
+			playerX += PLAYER_MOVEMENT_SPEED;
+		}
+
+		//Sam Wills coding task two start
+		jumping();
+		//Sam Wills coding task two end
 					
 		//Drawing player sprite (texture class)
-		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE-10);
+		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE - spriteAdjustmentPlayerSize*2);
 
 		//Thomas Easterbrook Coding Task two start
-		hunterSprite->render(renderer, HunterX, HunterY, tileSize, tileSize);
+		hunterSprite->render(renderer, HunterX, HunterY + spriteAdjustmentHunterSize, tileSize, tileSize);
 		//Thomas Easterbrook Coding Task two end
 
 		//Drawing mushroom sprite
-		mushroomSprite->render(renderer, MushroomX, MushroomY, SPRITE_SIZE, SPRITE_SIZE);
+		mushroomSprite->render(renderer, MushroomX, MushroomY + spriteAdjustmentMushroomSize, SPRITE_SIZE, SPRITE_SIZE);
 
 		////Sam Wills coding task two start
 		hasFoxTouchedPlatform();
@@ -227,7 +202,11 @@ void SoftFox::drawLevel()
 ///Get the collision for the player with the platform
 void SoftFox::hasFoxTouchedPlatform()
 {
-	SDL_Rect playerBox = { playerX - SPRITE_SIZE/2, playerY - SPRITE_SIZE/2-10, SPRITE_SIZE/2, SPRITE_SIZE }; //create box for player
+	int playerXPos = playerX - SPRITE_SIZE / 2;
+	int playerYPos = playerY + spriteAdjustmentPlayerSize;
+	int playerWidth = SPRITE_SIZE / 2;
+	int playerHeight = 1;
+	SDL_Rect playerBox = { playerXPos, playerYPos, playerWidth, playerHeight}; //create box for player
 	playerY += gravity; //set gravity for player
 
 	for (int y = 0; y < level->getHeight(); y++) //goes through height of level txt doc for coordinate
@@ -248,6 +227,37 @@ void SoftFox::hasFoxTouchedPlatform()
 					return;
 				}
 			}
+		}
+	}
+}
+
+void SoftFox::jumping()
+{
+	//The timer starting time
+	if (!jump)
+	{
+		if (keyboardState[SDL_SCANCODE_UP])
+		{
+			playerY -= 20; //make sprite move up
+			start = SDL_GetTicks(); //set time to ticks
+			jump = true;
+		}
+	}
+	else if (jump && !hasJumped) //check if up is still being pressed
+	{
+		if (keyboardState[SDL_SCANCODE_UP])
+		{
+			playerY -= 20; //make sprite move up
+			Uint32 jumpTime = SDL_GetTicks() - start; //set jumpTime to the time length of the jump
+			if (jumpTime > 100) //if jumpTime exceeds 100
+			{
+				jump = false;
+				hasJumped = true;
+			}
+		}
+		else
+		{
+			hasJumped = true;
 		}
 	}
 }
@@ -287,7 +297,7 @@ bool playerTouchesFox();
 
 void SoftFox::hasFoxTouchedHunter()
 {
-	SDL_Rect HunterBox = { HunterX - SPRITE_SIZE / 2, HunterY - SPRITE_SIZE / 2,SPRITE_SIZE,SPRITE_SIZE }; //creating a box relative to hunter
+	SDL_Rect HunterBox = { HunterX - SPRITE_SIZE / 2, HunterY - SPRITE_SIZE / 2 + spriteAdjustmentHunterSize, SPRITE_SIZE, SPRITE_SIZE }; //creating a box relative to hunter
 	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE, SPRITE_SIZE }; //using box around the player
 	if (physics -> isCollision (HunterBox, playerBox))//if they collide
 	{

@@ -24,7 +24,12 @@ public:
 	static const int PLAYER_MOVEMENT_SPEED = 4;
 	static const int gravity = 9;
 	static const int upForce = gravity;
+	static const int spriteAdjustmentPlayerSize = 10;
+	static const int spriteAdjustmentHunterSize = 14;
+	static const int spriteAdjustmentMushroomSize = 24;
 
+	// Check keyboard state
+	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
 
 	const char* level_name = "..\\Level\\Level_One.txt";
 
@@ -36,6 +41,8 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
+	Texture* playerSpriteRight;
+	Texture* playerSpriteLeft;
 	Texture* playerSprite;
 	Texture* hunterSprite;
 	Texture* mushroomSprite;
@@ -55,6 +62,7 @@ private:
 	void hasFoxTouchedHunter();
 	//Thomas Easterbrook Coding Task two end
 	void hasFoxTouchedPlatform();
+	void jumping();
 
 	Physics* physics;
 
