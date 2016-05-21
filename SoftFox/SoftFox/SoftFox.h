@@ -25,10 +25,11 @@ public:
 	static const int spriteAdjustmentMushroomSize = 24; ///Adjustment for mushroom sprite to align with each platform 
 	static const int jumpHeight = 20; ///Set player jump height
 	static const int screenHeightSpriteAdjument = 40; ///Allows player to jump briefly out of game window
+	static const int screenControlSpriteAdjustment = 240;
 
 	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr); // Check keyboard state
 
-	const char* level_name = "..\\Level\\Level_One.txt"; ///Choose level from files
+	const char* level_name = "..\\Level\\Level_Two.txt"; ///Choose level from files
 
 	int tileSize; ///tile size uses level height and width of txt doc
 
@@ -42,6 +43,7 @@ private:
 	Texture* playerSprite;
 	Texture* hunterSprite;
 	Texture* mushroomSprite;
+	Texture* controls;
 	SDL_Texture* platformSprite; //player sprite with grass
 	SDL_Texture* platformSprite_Dirt; //player sprite with dirt
 	SDL_Texture* backgroundImage;
@@ -53,6 +55,8 @@ private:
 	void drawTile(int x, int y, SDL_Texture* texture); 	///individually draws tile textures
 	void drawLevel(); 	///draws everything in level using drawTile and txt doc
 	void resetPlayer(); ///reset player position using start position in txt doc
+	void PlayerKeyBoardCommands(); ///All player commands here
+	void sideCollision();
 
 	int playerX, playerY;
 	int platformX, platformY;
@@ -64,7 +68,7 @@ private:
 	void jumping(); ///Allows player to do a single jump for a certain amount of time
 	void isFoxInWindow(); ///Check if player is in game window and resets player position if not
 
-	bool running;
+	bool running; ///Set a boolean to keep the window running until false
 	bool jump;
 	bool hasJumped;
 	bool playerCollision;
