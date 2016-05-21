@@ -45,7 +45,7 @@ SoftFox::SoftFox()
 	mushroomSprite = new Texture("..\\Sprites\\mushroom.png");
 	playerSpriteRight = new Texture("..\\Sprites\\foxRight.png");
 	playerSpriteLeft = new Texture("..\\Sprites\\foxLeft.png");
-	playerSprite = playerSpriteRight;
+	playerSprite = playerSpriteRight; //Sets default sprite direction
 	//Hunter (Thomas)
 	hunterSprite = new Texture("..\\Sprites\\hunter.png");
 }
@@ -80,12 +80,10 @@ void SoftFox::run()
 
 	jump = false;
 	hasJumped = false;
-
 	playerCollision = false;
 
-	//Set player start position to the tile using level
-	playerX = tileSize * level->getStartX() + tileSize / 2;
-	playerY = tileSize * level->getStartY() + tileSize / 2;
+	//Sets the players position
+	resetPlayer();
 
 	//Thomas Easterbrook Coding Task two start
 	HunterX = tileSize * level->getVillianX() + tileSize/2;
@@ -141,9 +139,6 @@ void SoftFox::run()
 		//Sam Wills coding task two start
 		jumping();
 		//Sam Wills coding task two end
-					
-		//Drawing player sprite (texture class)
-		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE - spriteAdjustmentPlayerSize*2);
 
 		//Thomas Easterbrook Coding Task two start
 		hunterSprite->render(renderer, HunterX, HunterY + spriteAdjustmentHunterSize, tileSize, tileSize);
@@ -152,8 +147,12 @@ void SoftFox::run()
 		//Drawing mushroom sprite
 		mushroomSprite->render(renderer, MushroomX, MushroomY + spriteAdjustmentMushroomSize, SPRITE_SIZE, SPRITE_SIZE);
 
+		//Drawing player sprite (texture class)
+		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE - spriteAdjustmentPlayerSize * 2);
+
 		////Sam Wills coding task two start
 		hasFoxTouchedPlatform();
+		isFoxInWindow();
 		//Sam Wills coding task two end
 
 		//Thomas Easterbrook Coding Task two start
@@ -163,6 +162,13 @@ void SoftFox::run()
 					
 		SDL_RenderPresent(renderer);				
 	}
+}
+
+///Set player start position to the tile using level
+void SoftFox::resetPlayer()
+{
+	playerX = tileSize * level->getStartX() + tileSize / 2;//resets player to original position
+	playerY = tileSize * level->getStartY() + tileSize / 2;
 }
 
 /// This method draws tiles using passed in x and y coordinates from drawLevel
@@ -176,7 +182,7 @@ void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
 	SDL_RenderCopy(renderer, texture, nullptr, &dest);
 }
 
-//draws level to screen using drawTile and level.txt doc
+///draws level to screen using drawTile and level.txt doc
 void SoftFox::drawLevel()
 {
 	for (int y = 0; y < level->getHeight(); y++) //goes through coloumns
@@ -217,7 +223,9 @@ void SoftFox::hasFoxTouchedPlatform()
 			{
 				int platformX = tileSize * x; //translate coordinates to screen
 				int platformY = tileSize * y; //translate coordinates to screen
-				SDL_Rect platformBox = { platformX, platformY, tileSize, tileSize }; //create box for platform
+				int platformWidth = tileSize;
+				int platformHeight = tileSize;
+				SDL_Rect platformBox = { platformX, platformY, platformWidth, platformHeight }; //create box for platform
 				if (physics->isCollision(platformBox, playerBox)) //if the platform and player collide
 				{
 					playerY -= upForce; //show force for collision
@@ -231,6 +239,16 @@ void SoftFox::hasFoxTouchedPlatform()
 	}
 }
 
+///resets player position if player outside of screen window
+void SoftFox::isFoxInWindow()
+{
+	if (playerX > WINDOW_WIDTH || playerX < 0 || playerY > WINDOW_HEIGHT || playerY < 0 - screenHeightSpriteAdjument)
+	{
+		resetPlayer();
+	}
+}
+
+///The player can jump using the up arrow
 void SoftFox::jumping()
 {
 	//The timer starting time
@@ -238,7 +256,7 @@ void SoftFox::jumping()
 	{
 		if (keyboardState[SDL_SCANCODE_UP])
 		{
-			playerY -= 20; //make sprite move up
+			playerY -= jumpHeight; //make sprite move up
 			start = SDL_GetTicks(); //set time to ticks
 			jump = true;
 		}
@@ -247,7 +265,7 @@ void SoftFox::jumping()
 	{
 		if (keyboardState[SDL_SCANCODE_UP])
 		{
-			playerY -= 20; //make sprite move up
+			playerY -= jumpHeight; //make sprite move up
 			Uint32 jumpTime = SDL_GetTicks() - start; //set jumpTime to the time length of the jump
 			if (jumpTime > 100) //if jumpTime exceeds 100
 			{
@@ -301,8 +319,9 @@ void SoftFox::hasFoxTouchedHunter()
 	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE, SPRITE_SIZE }; //using box around the player
 	if (physics -> isCollision (HunterBox, playerBox))//if they collide
 	{
-		playerX = tileSize * level->getStartX() + tileSize / 2;//resets player to original position
-		playerY = tileSize * level->getStartY() + tileSize / 2;
+		resetPlayer();
+		//playerX = tileSize * level->getStartX() + tileSize / 2;//resets player to original position
+		//playerY = tileSize * level->getStartY() + tileSize / 2;
 	}
 }
 //Thomas Easterbrook Coding Task two end

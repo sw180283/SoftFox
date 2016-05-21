@@ -27,6 +27,8 @@ public:
 	static const int spriteAdjustmentPlayerSize = 10;
 	static const int spriteAdjustmentHunterSize = 14;
 	static const int spriteAdjustmentMushroomSize = 24;
+	static const int jumpHeight = 20;
+	static const int screenHeightSpriteAdjument = 40;
 
 	// Check keyboard state
 	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
@@ -56,17 +58,12 @@ private:
 	void drawTile(int x, int y, SDL_Texture* texture);
 	//draws everything declared in level
 	void drawLevel();
+	void resetPlayer();
 
 	//Thomas Easterbrook Coding Task two start
 	void movement();
 	void hasFoxTouchedHunter();
 	//Thomas Easterbrook Coding Task two end
-	void hasFoxTouchedPlatform();
-	void jumping();
-
-	Physics* physics;
-
-	Uint32 start = 0;
 
 	int playerX, playerY;
 	int platformX, platformY;
@@ -75,8 +72,22 @@ private:
 	int HunterDirection = -1;
 	//Thomas Easterbrook Coding Task two end
 	int MushroomX, MushroomY;
+
+	//Sam Wills Coding Task two start
+	Physics* physics;
+
+	Uint32 start = 0;
+
+	void hasFoxTouchedPlatform();
+	void jumping();
 	bool running;
 	bool jump;
 	bool hasJumped;
 	bool playerCollision;
+	void isFoxInWindow();
+
+	Coordinates playerPosition;
+	const Coordinates& getPlayerPosition() const { return playerPosition; }
+	int getPlayerX() const { return playerPosition.getX(); }
+	int getPlayerY() const { return playerPosition.getY(); }
 };
