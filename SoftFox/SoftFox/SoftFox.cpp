@@ -278,8 +278,17 @@ void SoftFox::sideCollision()
 				SDL_Rect platformBox1 = { platformX1, platformY1, platformWidth1, platformHeight1 }; //create box for platform
 				if (physics->rightCollision(platformBox1, playerBox1))
 				{
-					playerX -= PLAYER_MOVEMENT_SPEED;
-					return;
+					if (keyboardState[SDL_SCANCODE_RIGHT])
+					{
+						playerX -= PLAYER_MOVEMENT_SPEED;
+						return;
+					}
+					else if (keyboardState[SDL_SCANCODE_LEFT])
+					{
+						playerX += PLAYER_MOVEMENT_SPEED;
+						return;
+					}
+
 				}
 			}
 		}
