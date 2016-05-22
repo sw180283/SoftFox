@@ -43,6 +43,7 @@ private:
 	Texture* playerSprite;
 	Texture* hunterSprite;
 	Texture* mushroomSprite;
+	Texture* winScreen;
 	Texture* controls;
 	SDL_Texture* platformSprite; //player sprite with grass
 	SDL_Texture* platformSprite_Dirt; //player sprite with dirt
@@ -84,5 +85,6 @@ private:
 
 	//Dean Harland Coding Task two start
 	int MushroomX, MushroomY;
+	void endGameMushroom();
 	//Dean Harland Coding Task two end
 };

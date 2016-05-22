@@ -37,6 +37,7 @@ SoftFox::SoftFox()
 	platformSprite_Dirt = IMG_LoadTexture(renderer, "..\\Sprites\\platform_sprite_dirt.png");
 	backgroundImage = IMG_LoadTexture(renderer, "..\\Sprites\\background_art.png");
 	mushroomSprite = new Texture("..\\Sprites\\mushroom.png");
+	winScreen = new Texture("..\\Sprites\\winscreen.png");
 	playerSpriteRight = new Texture("..\\Sprites\\foxRight.png");
 	playerSpriteLeft = new Texture("..\\Sprites\\foxLeft.png");
 	playerSprite = playerSpriteRight; //Sets default sprite direction
@@ -135,7 +136,14 @@ void SoftFox::run()
 		movement();
 		hasFoxTouchedHunter();
 		//Thomas Easterbrook Coding Task two end
-					
+
+		//Dean Harland Coding Task Two Start
+		endGameMushroom();
+		
+		//Dean Harland Coding Task Two Start
+
+
+
 		SDL_RenderPresent(renderer);				
 	}
 }
@@ -355,3 +363,27 @@ void SoftFox::hasFoxTouchedHunter()
 }
 //Thomas Easterbrook Coding Task two end
 
+//Dean Harland Coding Task Two Start
+
+void SoftFox::endGameMushroom()
+{
+	SDL_Rect MushroomBox = { MushroomX - SPRITE_SIZE / 2, MushroomY - SPRITE_SIZE / 2 + spriteAdjustmentMushroomSize,SPRITE_SIZE, SPRITE_SIZE };
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE, SPRITE_SIZE };
+	if (physics->isCollision(MushroomBox, playerBox))
+	{
+
+		//render win screen
+		winScreen->render(renderer, WINDOW_WIDTH - 400, 300, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+			//Buton for restart(In Progress)
+		//	MSG msg;
+		//HWND hWnd = CreateWindow(TEXT("button"), TEXT("Restart?"), WS_VISIBLE | WS_POPUP,
+		//	750, 750, 400, 80, NULL, NULL, NULL, NULL);
+		//HWND hwnd, hwndButton, icon_button;
+		//ShowWindow(hWnd, SW_SHOW);
+		//UpdateWindow(hWnd);
+		//return;
+	}
+}
+
+//Dean Harland Coding Task Two End
