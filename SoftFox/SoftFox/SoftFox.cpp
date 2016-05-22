@@ -128,7 +128,7 @@ void SoftFox::run()
 		////Sam Wills coding task two start
 		jumping();
 		hasFoxTouchedPlatform();
-		//sideCollision();
+		sideCollision();
 		isFoxInWindow();
 		//Sam Wills coding task two end
 
@@ -180,11 +180,12 @@ void SoftFox::PlayerKeyBoardCommands()
 		playerSprite = playerSpriteRight;
 		playerX += PLAYER_MOVEMENT_SPEED;
 	}
-
+	/*
 	if (keyboardState[SDL_SCANCODE_DOWN])
 	{
 		playerY += PLAYER_MOVEMENT_SPEED;
 	}
+	*/
 }
 
 ///draws level to screen using drawTile and level.txt doc
@@ -258,11 +259,11 @@ void SoftFox::hasFoxTouchedPlatform()
 
 void SoftFox::sideCollision()
 {
-	int playerXPos = playerX - SPRITE_SIZE / 2 + spriteAdjustmentPlayerSize;
-	int playerYPos = playerY + spriteAdjustmentPlayerSize;
-	int playerWidth = SPRITE_SIZE / 2;
-	int playerHeight = 1;
-	SDL_Rect playerBox = { playerXPos, playerYPos, playerWidth, playerHeight }; //create box for player
+	int playerXPos1 = playerX - SPRITE_SIZE / 2 + spriteAdjustmentPlayerSize;
+	int playerYPos1 = playerY + spriteAdjustmentPlayerSize;
+	int playerWidth1 = SPRITE_SIZE / 2;
+	int playerHeight1 = SPRITE_SIZE / 2 - spriteAdjustmentPlayerSize * 2;
+	SDL_Rect playerBox1 = { playerXPos1, playerYPos1, playerWidth1, playerHeight1 }; //create box for player
 
 	for (int y = 0; y < level->getHeight(); y++) //goes through height of level txt doc for coordinate
 	{
@@ -270,12 +271,12 @@ void SoftFox::sideCollision()
 		{
 			if (level->isWall(x, y)) //if coordinates are wall
 			{
-				int platformX = tileSize * x; //translate coordinates to screen
-				int platformY = tileSize * y; //translate coordinates to screen
-				int platformWidth = tileSize;
-				int platformHeight = tileSize;
-				SDL_Rect platformBox = { platformX, platformY, platformWidth, platformHeight }; //create box for platform
-				if (physics->rightCollision(playerBox, platformBox))
+				int platformX1 = tileSize * x; //translate coordinates to screen
+				int platformY1 = tileSize * y + 24; //translate coordinates to screen
+				int platformWidth1 = tileSize;
+				int platformHeight1 = tileSize;
+				SDL_Rect platformBox1 = { platformX1, platformY1, platformWidth1, platformHeight1 }; //create box for platform
+				if (physics->rightCollision(platformBox1, playerBox1))
 				{
 					playerX -= PLAYER_MOVEMENT_SPEED;
 					return;

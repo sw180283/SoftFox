@@ -29,7 +29,7 @@ public:
 
 	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr); // Check keyboard state
 
-	const char* level_name = "..\\Level\\Level_Two.txt"; ///Choose level from files
+	const char* level_name = "..\\Level\\Level_Three.txt"; ///Choose level from files
 
 	int tileSize; ///tile size uses level height and width of txt doc
 
