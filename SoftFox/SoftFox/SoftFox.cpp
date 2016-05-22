@@ -40,16 +40,15 @@ SoftFox::SoftFox()
 	winScreen = new Texture("..\\Sprites\\winscreen.png");
 	playerSpriteRight = new Texture("..\\Sprites\\foxRight.png");
 	playerSpriteLeft = new Texture("..\\Sprites\\foxLeft.png");
-	//Thomas Easterbrook Coding Task two start
-	HunterSpriteLeft = new Texture("..\\Sprites\\hunterLeft.png");
-	HunterSpriteRight = new Texture("..\\Sprites\\hunterRight.png");
-	//Thomas Easterbrook Coding Task two end
 	playerSprite = playerSpriteRight; //Sets default sprite direction
 	controls = new Texture("..\\Sprites\\controls.png");
-	
+
+	//Thomas Easterbrook Coding Task two start
 	hunterSpriteRight = new Texture("..\\Sprites\\hunterRight.png");
 	hunterSpriteLeft = new Texture("..\\Sprites\\hunterLeft.png");
 	hunterSprite = hunterSpriteLeft; //Sets default sprite direction
+	//Thomas Easterbrook Coding Task two end
+
 }
 
 SoftFox::~SoftFox()
@@ -91,8 +90,8 @@ void SoftFox::run()
 	//Thomas Easterbrook Coding Task two end
 
 	//Set mushroom start posistion to the tile using level
-	MushroomX = tileSize * level->getMushroomX() + tileSize / 2;
-	MushroomY = tileSize * level->getMushroomY() + tileSize / 2;
+	mushroomX = tileSize * level->getMushroomX() + tileSize / 2;
+	mushroomY = tileSize * level->getMushroomY() + tileSize / 2;
 
 	while (running)
 	{
@@ -116,14 +115,14 @@ void SoftFox::run()
 		SDL_RenderCopy(renderer, backgroundImage, nullptr, NULL); //Render the background first
 
 		drawLevel(); //Draw the level using the method drawTile shown below
-		PlayerKeyBoardCommands();
+		playerKeyBoardCommands();
 
 		//Thomas Easterbrook Coding Task two start
 		hunterSprite->render(renderer, hunterX, hunterY + spriteAdjustmentHunterSize, tileSize, tileSize);
 		//Thomas Easterbrook Coding Task two end
 
 		//Drawing mushroom sprite
-		mushroomSprite->render(renderer, MushroomX, MushroomY + spriteAdjustmentMushroomSize, SPRITE_SIZE, SPRITE_SIZE);
+		mushroomSprite->render(renderer, mushroomX, mushroomY + spriteAdjustmentMushroomSize, SPRITE_SIZE, SPRITE_SIZE);
 
 		//Drawing player sprite (texture class)
 		playerSprite->render(renderer, playerX, playerY, SPRITE_SIZE, SPRITE_SIZE - spriteAdjustmentPlayerSize * 2);
@@ -144,11 +143,8 @@ void SoftFox::run()
 		//Thomas Easterbrook Coding Task two end
 
 		//Dean Harland Coding Task Two Start
-		endGameMushroom();
-		
+		endGameMushroom();	
 		//Dean Harland Coding Task Two Start
-
-
 
 		SDL_RenderPresent(renderer);				
 	}
@@ -173,7 +169,7 @@ void SoftFox::drawTile(int x, int y, SDL_Texture* texture)
 }
 
 ///Player keyboard movement commands
-void SoftFox::PlayerKeyBoardCommands()
+void SoftFox::playerKeyBoardCommands()
 {
 	if (keyboardState[SDL_SCANCODE_LEFT])
 	{
@@ -186,12 +182,6 @@ void SoftFox::PlayerKeyBoardCommands()
 		playerSprite = playerSpriteRight;
 		playerX += PLAYER_MOVEMENT_SPEED;
 	}
-	/*
-	if (keyboardState[SDL_SCANCODE_DOWN])
-	{
-		playerY += PLAYER_MOVEMENT_SPEED;
-	}
-	*/
 }
 
 ///draws level to screen using drawTile and level.txt doc
@@ -215,7 +205,6 @@ void SoftFox::drawLevel()
 		}
 	}
 }
-
 
 ///resets player position if player outside of screen window
 void SoftFox::isFoxInWindow()
@@ -365,8 +354,6 @@ void SoftFox::movement()
 	}
 }
 
-bool playerTouchesFox();
-
 void SoftFox::hasFoxTouchedHunter()
 {
 	SDL_Rect hunterBox = { hunterX - SPRITE_SIZE / 2, hunterY - SPRITE_SIZE / 2 + spriteAdjustmentHunterSize, SPRITE_SIZE, SPRITE_SIZE }; //creating a box relative to hunter
@@ -383,22 +370,13 @@ void SoftFox::hasFoxTouchedHunter()
 
 void SoftFox::endGameMushroom()
 {
-	SDL_Rect MushroomBox = { MushroomX - SPRITE_SIZE / 2, MushroomY - SPRITE_SIZE / 2 + spriteAdjustmentMushroomSize,SPRITE_SIZE, SPRITE_SIZE };
+	SDL_Rect MushroomBox = { mushroomX - SPRITE_SIZE / 2, mushroomY - SPRITE_SIZE / 2 + spriteAdjustmentMushroomSize,SPRITE_SIZE, SPRITE_SIZE };
 	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE, SPRITE_SIZE };
 	if (physics->isCollision(MushroomBox, playerBox))
 	{
 
 		//render win screen
 		winScreen->render(renderer, WINDOW_WIDTH - 400, 300, WINDOW_WIDTH, WINDOW_HEIGHT);
-
-			//Buton for restart(In Progress)
-		//	MSG msg;
-		//HWND hWnd = CreateWindow(TEXT("button"), TEXT("Restart?"), WS_VISIBLE | WS_POPUP,
-		//	750, 750, 400, 80, NULL, NULL, NULL, NULL);
-		//HWND hwnd, hwndButton, icon_button;
-		//ShowWindow(hWnd, SW_SHOW);
-		//UpdateWindow(hWnd);
-		//return;
 	}
 }
 

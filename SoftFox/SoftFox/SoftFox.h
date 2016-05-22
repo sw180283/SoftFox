@@ -15,8 +15,8 @@ public:
 	void run(); //Run the main game
 
 	//Thomas Easterbrook Coding Task two start
-	int gethunterX() { return hunterX; }
-	int gethunterY() { return hunterY; }
+	int getHunterX() { return hunterX; }
+	int getHunterY() { return hunterY; }
 	//Thomas Easterbrook Coding Task two end
 
 	static const int WINDOW_HEIGHT = 600; ///Set the game height
@@ -45,14 +45,14 @@ private:
 
 	Texture* playerSpriteRight; //player sprite faces right
 	Texture* playerSpriteLeft; //player sprite faces left
-	//Thomas Easterbrook Coding Task two start
-	Texture* HunterSpriteLeft;
-	Texture* HunterSpriteRight;
-	//Thomas Easterbrook Coding Task two end
 	Texture* playerSprite;
+
+	//Thomas Easterbrook Coding Task two start
 	Texture* hunterSpriteRight; //player sprite faces right
 	Texture* hunterSpriteLeft; //player sprite faces left
 	Texture* hunterSprite;
+	//Thomas Easterbrook Coding Task two end
+
 	Texture* mushroomSprite;
 	Texture* winScreen;
 	Texture* controls;
@@ -67,7 +67,7 @@ private:
 	void drawTile(int x, int y, SDL_Texture* texture); 	///individually draws tile textures
 	void drawLevel(); 	///draws everything in level using drawTile and txt doc
 	void resetPlayer(); ///reset player position using start position in txt doc
-	void PlayerKeyBoardCommands(); ///All player commands here
+	void playerKeyBoardCommands(); ///All player commands here
 	void sideCollision();
 
 	int playerX, playerY;
@@ -94,7 +94,7 @@ private:
 	//Thomas Easterbrook Coding Task two end
 
 	//Dean Harland Coding Task two start
-	int MushroomX, MushroomY;
+	int mushroomX, mushroomY;
 	void endGameMushroom();
 	//Dean Harland Coding Task two end
 };
