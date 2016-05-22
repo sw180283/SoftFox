@@ -35,7 +35,7 @@ public:
 	static const int spriteControlYAdjustment = 40;
 	static const int platformSpriteCollisionAdjustment = 24;
 	static const int playerSpriteGroundCollision = 1;
-
+	static const int winScreenAdjustment = 400;
 	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr); // Check keyboard state
 
 	const char* level_name = "..\\Level\\Level_Three.txt"; ///Choose level from files

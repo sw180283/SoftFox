@@ -397,7 +397,7 @@ void SoftFox::endGameMushroom()
 	{
 
 		//render win screen
-		winScreen->render(renderer, WINDOW_WIDTH - 400, 300, WINDOW_WIDTH, WINDOW_HEIGHT);
+		winScreen->render(renderer, winScreenAdjustment, 300, WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
 }
 //Dean Harland Coding Task Two End
