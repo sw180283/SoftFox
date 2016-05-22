@@ -46,6 +46,8 @@ private:
 	Texture* playerSpriteRight; //player sprite faces right
 	Texture* playerSpriteLeft; //player sprite faces left
 	Texture* playerSprite;
+	Texture* hunterSpriteRight; //player sprite faces right
+	Texture* hunterSpriteLeft; //player sprite faces left
 	Texture* hunterSprite;
 	Texture* mushroomSprite;
 	Texture* winScreen;
