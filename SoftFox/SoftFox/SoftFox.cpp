@@ -86,8 +86,8 @@ void SoftFox::run()
 	resetPlayer(); 	//Sets the players position
 
 	//Thomas Easterbrook Coding Task two start
-	HunterX = tileSize * level->getVillianX() + tileSize/2;
-	HunterY = tileSize * level->getVillianY() + tileSize/2;
+	hunterX = tileSize * level->getVillianX() + tileSize/2;
+	hunterY = tileSize * level->getVillianY() + tileSize/2;
 	//Thomas Easterbrook Coding Task two end
 
 	//Set mushroom start posistion to the tile using level
@@ -119,7 +119,7 @@ void SoftFox::run()
 		PlayerKeyBoardCommands();
 
 		//Thomas Easterbrook Coding Task two start
-		hunterSprite->render(renderer, HunterX, HunterY + spriteAdjustmentHunterSize, tileSize, tileSize);
+		hunterSprite->render(renderer, hunterX, hunterY + spriteAdjustmentHunterSize, tileSize, tileSize);
 		//Thomas Easterbrook Coding Task two end
 
 		//Drawing mushroom sprite
@@ -337,30 +337,30 @@ void SoftFox::jumping()
 //Thomas Easterbrook Coding Task two start
 void SoftFox::movement()
 {
-	if (HunterDirection < 0) //hunter is set to minus one in header so it checks next if
+	if (hunterDirection < 0) //hunter is set to minus one in header so it checks next if
 	{
-		if (level->isWall(HunterX / tileSize - 1, HunterY / tileSize + 1) &&
-			(!level->isWall(HunterX / tileSize - 1, HunterY / tileSize))) //while the bottom left block is wall and no wall next to hunter
+		if (level->isWall(hunterX / tileSize - 1, hunterY / tileSize + 1) &&
+			(!level->isWall(hunterX / tileSize - 1, hunterY / tileSize))) //while the bottom left block is wall and no wall next to hunter
 		{
-			HunterX -= 2; //move left
+			hunterX -= 2; //move left
 			hunterSprite = hunterSpriteLeft;
 		}
 		else
 		{
-			HunterDirection = 1; // else hunter turns around
+			hunterDirection = 1; // else hunter turns around
 		}
 	}
 	else
 	{
-		if (level->isWall(HunterX / tileSize + 1, HunterY / tileSize + 1) &&
-			(!level->isWall(HunterX / tileSize + 1, HunterY / tileSize))) // while the bottom right block is wall and no wall next to hunter
+		if (level->isWall(hunterX / tileSize + 1, hunterY / tileSize + 1) &&
+			(!level->isWall(hunterX / tileSize + 1, hunterY / tileSize))) // while the bottom right block is wall and no wall next to hunter
 		{
-			HunterX += 2; //move right
+			hunterX += 2; //move right
 			hunterSprite = hunterSpriteRight;
 		}
 		else
 		{
-			HunterDirection = -1; //loops hunter back to the start
+			hunterDirection = -1; //loops hunter back to the start
 		}
 	}
 }
@@ -369,9 +369,9 @@ bool playerTouchesFox();
 
 void SoftFox::hasFoxTouchedHunter()
 {
-	SDL_Rect HunterBox = { HunterX - SPRITE_SIZE / 2, HunterY - SPRITE_SIZE / 2 + spriteAdjustmentHunterSize, SPRITE_SIZE, SPRITE_SIZE }; //creating a box relative to hunter
+	SDL_Rect hunterBox = { hunterX - SPRITE_SIZE / 2, hunterY - SPRITE_SIZE / 2 + spriteAdjustmentHunterSize, SPRITE_SIZE, SPRITE_SIZE }; //creating a box relative to hunter
 	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE - 70, SPRITE_SIZE - 70 }; //putting a box around the fox
-	if (physics -> isCollision (HunterBox, playerBox))//if collision occurs
+	if (physics -> isCollision (hunterBox, playerBox))//if collision occurs
 	{
 		resetPlayer();
 	}
