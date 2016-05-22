@@ -26,11 +26,15 @@ public:
 	static const int gravity = 9; ///Gravity force on player
 	static const int upForce = gravity; ///Reactive force on player
 	static const int spriteAdjustmentPlayerSize = 10; ///Adjustment for player sprite to align with each platform 
+	static const int playerSpriteHeight = SPRITE_SIZE - spriteAdjustmentPlayerSize * 2;
 	static const int spriteAdjustmentHunterSize = 14; ///Adjustment for hunter sprite to align with each platform 
 	static const int spriteAdjustmentMushroomSize = 24; ///Adjustment for mushroom sprite to align with each platform 
 	static const int jumpHeight = 20; ///Set player jump height
 	static const int screenHeightSpriteAdjument = 40; ///Allows player to jump briefly out of game window
-	static const int screenControlSpriteAdjustment = 240;
+	static const int spriteControlXAdjustment = 240;
+	static const int spriteControlYAdjustment = 40;
+	static const int platformSpriteCollisionAdjustment = 24;
+	static const int playerSpriteGroundCollision = 1;
 
 	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr); // Check keyboard state
 
@@ -87,7 +91,7 @@ private:
 	//Sam Wills Coding Task two end
 
 	//Thomas Easterbrook Coding Task two start
-	void movement();
+	void hunterMovement();
 	void hasFoxTouchedHunter();
 	int hunterDirection = -1;
 	int hunterX, hunterY;
