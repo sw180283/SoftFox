@@ -40,10 +40,13 @@ SoftFox::SoftFox()
 	winScreen = new Texture("..\\Sprites\\winscreen.png");
 	playerSpriteRight = new Texture("..\\Sprites\\foxRight.png");
 	playerSpriteLeft = new Texture("..\\Sprites\\foxLeft.png");
+	//Thomas Easterbrook Coding Task two start
+	HunterSpriteLeft = new Texture("..\\Sprites\\hunterLeft.png");
+	HunterSpriteRight = new Texture("..\\Sprites\\hunterRight.png");
+	//Thomas Easterbrook Coding Task two end
 	playerSprite = playerSpriteRight; //Sets default sprite direction
 	controls = new Texture("..\\Sprites\\controls.png");
-	//Hunter (Thomas)
-	hunterSprite = new Texture("..\\Sprites\\hunter.png");
+	
 }
 
 SoftFox::~SoftFox()
@@ -337,6 +340,7 @@ void SoftFox::movement()
 			(!level->isWall(HunterX / tileSize - 1, HunterY / tileSize))) //while the bottom left block is wall and no wall next to hunter
 		{
 			HunterX -= 2; //move left
+			hunterSprite = HunterSpriteLeft;
 		}
 		else
 		{
@@ -349,6 +353,7 @@ void SoftFox::movement()
 			(!level->isWall(HunterX / tileSize + 1, HunterY / tileSize))) // while the bottom right block is wall and no wall next to hunter
 		{
 			HunterX += 2; //move right
+			hunterSprite = HunterSpriteRight;
 		}
 		else
 		{

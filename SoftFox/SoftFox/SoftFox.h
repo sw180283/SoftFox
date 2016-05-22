@@ -45,6 +45,10 @@ private:
 
 	Texture* playerSpriteRight; //player sprite faces right
 	Texture* playerSpriteLeft; //player sprite faces left
+	//Thomas Easterbrook Coding Task two start
+	Texture* HunterSpriteLeft;
+	Texture* HunterSpriteRight;
+	//Thomas Easterbrook Coding Task two end
 	Texture* playerSprite;
 	Texture* hunterSprite;
 	Texture* mushroomSprite;
