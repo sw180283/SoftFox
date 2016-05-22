@@ -11,7 +11,6 @@ public:
 	~Physics();
 
 	bool isCollision(SDL_Rect& objectOne, SDL_Rect& objectTwo);
-	bool rightCollision(SDL_Rect& objectOne, SDL_Rect& objectTwo);
 
 private:
 	Level* level;
