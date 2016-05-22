@@ -14,10 +14,10 @@ public:
 
 	void run();
 
-	//Hunter (Thomas)
+	//Thomas Easterbrook Coding Task two start
 	int getHunterX() { return HunterX; }
 	int getHunterY() { return HunterY; }
-
+	//Thomas Easterbrook Coding Task two end
 	static const int WINDOW_HEIGHT = 600;
 	static const int WINDOW_WIDTH = 800;
 	static const int SPRITE_SIZE = 64;
