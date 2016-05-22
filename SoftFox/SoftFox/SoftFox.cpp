@@ -328,7 +328,7 @@ void SoftFox::movement()
 {
 	if (hunterDirection < 0) //hunter is set to minus one in header so it checks next if
 	{
-		if (level->isWall(hunterX / tileSize - 1, hunterY / tileSize + 1) &&
+		if (level->isWall(hunterX / tileSize - 1, hunterY / tileSize + 1) && ///hunter checking walls so he can walk in that direction
 			(!level->isWall(hunterX / tileSize - 1, hunterY / tileSize))) //while the bottom left block is wall and no wall next to hunter
 		{
 			hunterX -= 2; //move left
@@ -345,7 +345,7 @@ void SoftFox::movement()
 			(!level->isWall(hunterX / tileSize + 1, hunterY / tileSize))) // while the bottom right block is wall and no wall next to hunter
 		{
 			hunterX += 2; //move right
-			hunterSprite = hunterSpriteRight;
+			hunterSprite = hunterSpriteRight; ///change sprite to make it look like the hunter is moving in that direction
 		}
 		else
 		{
@@ -356,8 +356,8 @@ void SoftFox::movement()
 
 void SoftFox::hasFoxTouchedHunter()
 {
-	SDL_Rect hunterBox = { hunterX - SPRITE_SIZE / 2, hunterY - SPRITE_SIZE / 2 + spriteAdjustmentHunterSize, SPRITE_SIZE, SPRITE_SIZE }; //creating a box relative to hunter
-	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE - 70, SPRITE_SIZE - 70 }; //putting a box around the fox
+	SDL_Rect hunterBox = { hunterX - SPRITE_SIZE / 2, hunterY - SPRITE_SIZE / 2 + spriteAdjustmentHunterSize, SPRITE_SIZE, SPRITE_SIZE }; 
+	SDL_Rect playerBox = { playerX - SPRITE_SIZE / 2, playerY - SPRITE_SIZE / 2, SPRITE_SIZE - 70, SPRITE_SIZE - 70 }; ///putting a box around the fox and hunter so that player resets on contact
 	if (physics -> isCollision (hunterBox, playerBox))//if collision occurs
 	{
 		resetPlayer();
