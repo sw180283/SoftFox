@@ -83,7 +83,6 @@ private:
 	//Thomas Easterbrook Coding Task two start
 	void movement();
 	void hasFoxTouchedHunter();
-
 	int HunterDirection = -1;
 	int HunterX, HunterY;
 	//Thomas Easterbrook Coding Task two end

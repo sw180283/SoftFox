@@ -360,6 +360,7 @@ void SoftFox::hasFoxTouchedHunter()
 }
 //Thomas Easterbrook Coding Task two end
 
+
 //Dean Harland Coding Task Two Start
 
 void SoftFox::endGameMushroom()
