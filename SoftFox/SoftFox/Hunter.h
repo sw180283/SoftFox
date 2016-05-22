@@ -9,8 +9,8 @@ class Hunter
 {
 public:
 	Hunter();
-	int HunterX;
-	int HunterY;
+	int hunterX;
+	int hunterY;
 	int movement();
 
 	~Hunter();

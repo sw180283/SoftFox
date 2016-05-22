@@ -15,8 +15,8 @@ public:
 	void run(); //Run the main game
 
 	//Thomas Easterbrook Coding Task two start
-	int getHunterX() { return HunterX; }
-	int getHunterY() { return HunterY; }
+	int gethunterX() { return hunterX; }
+	int gethunterY() { return hunterY; }
 	//Thomas Easterbrook Coding Task two end
 
 	static const int WINDOW_HEIGHT = 600; ///Set the game height
@@ -89,8 +89,8 @@ private:
 	//Thomas Easterbrook Coding Task two start
 	void movement();
 	void hasFoxTouchedHunter();
-	int HunterDirection = -1;
-	int HunterX, HunterY;
+	int hunterDirection = -1;
+	int hunterX, hunterY;
 	//Thomas Easterbrook Coding Task two end
 
 	//Dean Harland Coding Task two start
